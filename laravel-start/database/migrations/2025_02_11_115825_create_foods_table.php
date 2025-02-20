@@ -11,10 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('quantityunits', function (Blueprint $table) {
+        Schema::create('foods', function (Blueprint $table) {
             $table->Integer('id')->autoIncrement();
-            $table->string('alapanyag', 50)->notNull();
-            // $table->timestamps();
+            $table->string('food', 50)->notNull();
+            $table->Integer('categorieId');
+            $table->Integer('categorieId')->references('id')->on('categories');
+            $table->text('recipe');
         });
     }
 
@@ -23,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('quantityunits');
+        Schema::dropIfExists('foods');
     }
 };
