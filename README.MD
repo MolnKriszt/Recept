@@ -20,7 +20,7 @@
 
 >**etelId :** -> Itt vannak az ételek azonosítójai
 
->**etkezesId :** -> 
+>**etkezesId :** -> A felhasználó milyen étkezést szeretne
 
 ## Etkezések
 
@@ -47,13 +47,14 @@
 
 >**id(azonosító) :** *Az ételek azonosítója, int(10), autoIncrement*
 >**nev(name) :** -> Itt találhatóak meg az ételek
->**etkezesId :** -> 
+>**KategóriaId :** -> Az ételek kategóriáai
+>**recpt :** -> Az ételeknek a receptjeit találhatjuk meg itt
 
-## Hozzávalók
+## Hozzávalók több több kapcsolat
 
 >**id(azonosító) :** *A hozzávalók azonosítója, int(10), autoIncrement*
 >**quantity(mennyiség) :** -> A ételeknek a hozzávalójuknak a mennyisége található meg itt
->**mennyisegegysegId :** 
+>**mennyisegegysegId :** -> A mennyiségnek az azonosítója
 >**etelId :** -> Az ételnek az azonosítója
 >**alapanyagId :**-> Mennyi alapanyag kell az ételhez/ételekhez
 >**hanyforeId :** -> Hány főre akarják a menüt
@@ -61,17 +62,17 @@
 ## Napi menük
 
 >**id(azonosító) :** *A napi menü azonosítója, int(10), autoIncrement*
->**userId(felhasználói azonosító) :** 
+>**userId(felhasználói azonosító) :**  -> A felhasználó azonosítója
 >**hetNapjai :** -> Itt látható a hét napjai
 >**hanyfore :** -> Itt lehet megadnia a felhasználónak hogy hány főre szeretné a napi menüjét
 
-## Menü étkezés
+## Menü étkezés több több kapcsolat
 
 >**id(azonosító) :** *A napi menü azonosítója, int(10), autoIncrement*
->**napimenuId :**
->**etkezesId :**
->**etelId :**
->**kellvagynem :**
+>**napimenuId :** -> Itt vannak a napi menü azonosítóját
+>**etkezesId :** -> Az étkezések azonosítója
+>**etelId :** -> Ételeknek az aznososítój
+>**kellvagynem :** -> Kéri-e a felhasználó az ételt vagy nem
 
 
 
