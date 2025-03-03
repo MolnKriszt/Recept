@@ -11,10 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('categories', function (Blueprint $table) {
-            $table->id(); 
-            $table->string('categorie')->notNull(); 
-            $table->foreignId('mealId')->constrained('meals');
+        Schema::create('daily_menu_ids', function (Blueprint $table) {
+            $table->Integer('id')->autoIncrement();
+            $table->foreignId('userId')->constrained('users');            
+            $table->string('daysOfTheWeek')->notNull();
+            $table->Integer('howmanypeopleMenu');
         });
     }
 
@@ -23,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('daily_menu_ids');
     }
 };

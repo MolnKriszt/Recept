@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('ingredients_quantities', function (Blueprint $table) {
             $table->Integer('id')->autoIncrement();
             $table->double('quantity');
-            $table->Integer('quantityunitId');
-            $table->Integer('quantityunitId')->references('id')->on('quantityunits');
-            // $table->Integer('foodId')->references('id')->on('');
-
+            $table->foreignId('quantityunitId')->constrained('quantityunits');
+            $table->foreignId('foodId')->constrained('foods');
+            $table->foreignId('ingredientId')->constrained('ingredients');            
+            $table->Integer('howmanypeople');
         });
     }
 
