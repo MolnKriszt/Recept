@@ -11,9 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('meals', function (Blueprint $table) {
+        Schema::create('foods', function (Blueprint $table) {
             $table->Integer('id')->autoIncrement();
-            $table->string('meal')->notNull();
+            $table->string('food', 50);
+            
+            $table->Integer('categorieId');
+            $table->foreign('categorieId')->references('id')->on('categories');
+            
+            
+            // $table->text('recipe');
         });
     }
 
@@ -22,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('meals');
+        Schema::dropIfExists('foods');
     }
 };

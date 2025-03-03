@@ -13,7 +13,10 @@ return new class extends Migration
     {
         Schema::create('daily_menu_ids', function (Blueprint $table) {
             $table->Integer('id')->autoIncrement();
-            $table->foreignId('userId')->constrained('users');            
+
+            $table->Integer('userId');
+            $table->foreign('userId')->references('id')->on('users');
+            
             $table->string('daysOfTheWeek')->notNull();
             $table->Integer('howmanypeopleMenu');
         });

@@ -13,9 +13,16 @@ return new class extends Migration
     {
         Schema::create('menu_meals', function (Blueprint $table) {
             $table->Integer('id')->autoIncrement();
-            $table->foreignId('dailyMenuId')->constrained('daily_menu_ids');            
-            $table->foreignId('mealId')->constrained('meals');            
-            $table->foreignId('foodId')->constrained('foods');            
+           
+            $table->Integer('dailyMenuId');
+            $table->foreign('dailyMenuId')->references('id')->on('daily_menu_ids');
+
+            $table->Integer('mealId');
+            $table->foreign('mealId')->references('id')->on('meals');
+            
+            $table->Integer('foodId');
+            $table->foreign('foodId')->references('id')->on('foods');
+
             $table->Integer('needsIt');
         });
     }

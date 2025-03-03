@@ -11,11 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('foods', function (Blueprint $table) {
-            $table->Integer('id')->autoIncrement();
-            $table->string('food', 50)->notNull();
-            $table->foreignId('categorieId')->constrained('categories');
-            $table->text('recipe');
+        Schema::create('meals', function (Blueprint $table) {
+            $table->id()->autoIncrement(); 
+            $table->string('meal')->notNull();
         });
     }
 
@@ -24,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('foods');
+        Schema::dropIfExists('meals');
     }
 };
