@@ -12,6 +12,12 @@ class RolesSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        $data = [
+            ['id' => 1,'role' => 'admin'],['id' => 2,'role' => 'user']
+        ];
+
+        if (Roles::count() === 0) {
+            Roles::factory()->createMany($data);
+        }
     }
 }

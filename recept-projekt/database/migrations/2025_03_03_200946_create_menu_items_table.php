@@ -16,7 +16,6 @@ return new class extends Migration
             $table->foreignId('daily_menu_id')->constrained('daily_menus')->onDelete('cascade');
             $table->foreignId('meal_id')->constrained('meals')->onDelete('cascade');
             $table->foreignId('dish_id')->constrained('dishes')->onDelete('cascade');
-            $table->integer('quantity');
             $table->boolean('is_optional')->default(false);
             $table->timestamps();
         });
