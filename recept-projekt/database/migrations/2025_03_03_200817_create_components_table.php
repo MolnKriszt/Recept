@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('components', function (Blueprint $table) {
             $table->id();
-            $table->decimal('quantity', 8, 2);
+            $table->decimal('quantity', 8, 2)->nullable();
             $table->foreignId('unit_id')->constrained('units')->onDelete('cascade');
             $table->foreignId('dish_id')->constrained('dishes')->onDelete('cascade');
             $table->foreignId('ingredient_id')->constrained('ingredients')->onDelete('cascade');
