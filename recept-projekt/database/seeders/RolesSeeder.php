@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Roles;
 
 class RolesSeeder extends Seeder
 {
@@ -13,7 +14,7 @@ class RolesSeeder extends Seeder
     public function run(): void
     {
         $data = [
-            ['id' => 1,'role' => 'admin'],['id' => 2,'role' => 'user']
+            ['id' => 1,'name' => 'admin'],['id' => 2,'name' => 'user']
         ];
 
         if (Roles::count() === 0) {

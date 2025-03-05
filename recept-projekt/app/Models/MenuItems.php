@@ -5,8 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class menu_items extends Model
+class MenuItems extends Model
 {
     /** @use HasFactory<\Database\Factories\MenuItemsFactory> */
     use HasFactory;
+    public $timestamps = false;
+
+    protected $fillable = [
+        'id',
+        'daily_menu_id',
+        'meal_id',
+        'dish_id',
+        'is_optional'
+    ];
 }

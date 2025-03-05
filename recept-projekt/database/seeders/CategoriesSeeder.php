@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Categories;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -25,8 +26,8 @@ class CategoriesSeeder extends Seeder
             fclose($handle);
         }
     
-        if (Osztaly::count() === 0) {
-            Osztaly::factory()->createMany($data);
+        if (Categories::count() === 0) {
+            Categories::factory()->createMany($data);
         }
     }
 }

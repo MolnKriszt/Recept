@@ -5,8 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class units extends Model
+class Units extends Model
 {
     /** @use HasFactory<\Database\Factories\UnitsFactory> */
     use HasFactory;
+    public $timestamps = false;
+
+    protected $fillable = [
+        'id',
+        'name'
+    ];
 }
