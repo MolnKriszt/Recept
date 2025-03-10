@@ -2,15 +2,12 @@
 
 namespace Database\Seeders;
 
-use App\Models\MenuItems;
+use App\Models\Menu_items;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class MenuItemsSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
         $data = [
@@ -21,8 +18,8 @@ class MenuItemsSeeder extends Seeder
             ['id' => 5,'daily_menu_id' => 1,'meal_id' => 5,'dish_id' => 1,'is_optional' => 1,],
         ];
 
-        if (MenuItems::count() === 0) {
-            MenuItems::factory()->createMany($data);
+        if (Menu_items::count() === 0) {
+            Menu_items::factory()->createMany($data);
         }
     }
 }

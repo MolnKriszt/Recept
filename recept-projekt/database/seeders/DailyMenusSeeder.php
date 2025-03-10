@@ -2,15 +2,12 @@
 
 namespace Database\Seeders;
 
-use App\Models\DailyMenus;
+use App\Models\Daily_menus;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class DailyMenusSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
         $data = [
@@ -23,8 +20,8 @@ class DailyMenusSeeder extends Seeder
             ['id' => 7,'user_id' => 1,'days_of_week' => 'v','number_of_people' => 5],
         ];
 
-        if (DailyMenus::count() === 0) {
-            DailyMenus::factory()->createMany($data);
+        if (Daily_menus::count() === 0) {
+            Daily_menus::factory()->createMany($data);
         }
     }
 }

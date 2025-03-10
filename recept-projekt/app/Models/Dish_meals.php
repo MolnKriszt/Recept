@@ -5,13 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Ingredients extends Model
+class Dish_meals extends Model
 {
     use HasFactory;
     public $timestamps = false;
 
     protected $fillable = [
         'id',
-        'name'
+        'dish_id',
+        'meal_id',
+        'days_of_week',
+        'number_of_people'
     ];
 }

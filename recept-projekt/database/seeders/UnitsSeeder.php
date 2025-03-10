@@ -8,9 +8,6 @@ use Illuminate\Database\Seeder;
 
 class UnitsSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
         $filePath = database_path('csv\units.csv');

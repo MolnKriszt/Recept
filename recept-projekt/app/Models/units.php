@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Units extends Model
 {
-    /** @use HasFactory<\Database\Factories\UnitsFactory> */
     use HasFactory;
     public $timestamps = false;
 

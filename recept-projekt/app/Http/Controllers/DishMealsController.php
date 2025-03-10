@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\dish_meal;
-use App\Http\Requests\Storedish_mealRequest;
-use App\Http\Requests\Updatedish_mealRequest;
+use App\Models\dish_meals;
+use App\Http\Requests\Storedish_mealsRequest;
+use App\Http\Requests\Updatedish_mealsRequest;
 
-class DishMealController extends Controller
+class DishMealsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,7 +19,7 @@ class DishMealController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Storedish_mealRequest $request)
+    public function store(Storedish_mealsRequest $request)
     {
         //
     }
@@ -27,7 +27,7 @@ class DishMealController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(dish_meal $dish_meal)
+    public function show(dish_meals $dish_meals)
     {
         //
     }
@@ -35,7 +35,7 @@ class DishMealController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Updatedish_mealRequest $request, dish_meal $dish_meal)
+    public function update(Updatedish_mealsRequest $request, dish_meals $dish_meals)
     {
         //
     }
@@ -43,7 +43,7 @@ class DishMealController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(dish_meal $dish_meal)
+    public function destroy(dish_meals $dish_meals)
     {
         //
     }

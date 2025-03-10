@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Components extends Model
 {
-    /** @use HasFactory<\Database\Factories\ComponentsFactory> */
     use HasFactory;
     public $timestamps = false;
 

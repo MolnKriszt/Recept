@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Categories extends Model
 {
-    /** @use HasFactory<\Database\Factories\CategoriesFactory> */
     use HasFactory;
     public $timestamps = false;
 

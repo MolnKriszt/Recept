@@ -2,14 +2,12 @@
 
 namespace Database\Seeders;
 
+use App\Models\Dish_meals;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class DishMealSeeder extends Seeder
+class DishMealsSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
         $filePath = database_path('csv\dish_meals.csv');
@@ -25,8 +23,8 @@ class DishMealSeeder extends Seeder
             fclose($handle);
         }
     
-        if (DishMeal::count() === 0) {
-            DishMeal::factory()->createMany($data);
+        if (Dish_meals::count() === 0) {
+            Dish_meals::factory()->createMany($data);
         }
     }
 }

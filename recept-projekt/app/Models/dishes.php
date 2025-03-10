@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Dishes extends Model
 {
-    /** @use HasFactory<\Database\Factories\DishesFactory> */
     use HasFactory;
     public $timestamps = false;
 

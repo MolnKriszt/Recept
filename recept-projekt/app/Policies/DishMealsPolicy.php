@@ -3,10 +3,10 @@
 namespace App\Policies;
 
 use App\Models\User;
-use App\Models\create_roles_table;
+use App\Models\dish_meals;
 use Illuminate\Auth\Access\Response;
 
-class CreateRolesTablePolicy
+class DishMealsPolicy
 {
     /**
      * Determine whether the user can view any models.
@@ -19,7 +19,7 @@ class CreateRolesTablePolicy
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, create_roles_table $createRolesTable): bool
+    public function view(User $user, dish_meals $dishMeals): bool
     {
         //
     }
@@ -35,7 +35,7 @@ class CreateRolesTablePolicy
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user, create_roles_table $createRolesTable): bool
+    public function update(User $user, dish_meals $dishMeals): bool
     {
         //
     }
@@ -43,7 +43,7 @@ class CreateRolesTablePolicy
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, create_roles_table $createRolesTable): bool
+    public function delete(User $user, dish_meals $dishMeals): bool
     {
         //
     }
@@ -51,7 +51,7 @@ class CreateRolesTablePolicy
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(User $user, create_roles_table $createRolesTable): bool
+    public function restore(User $user, dish_meals $dishMeals): bool
     {
         //
     }
@@ -59,7 +59,7 @@ class CreateRolesTablePolicy
     /**
      * Determine whether the user can permanently delete the model.
      */
-    public function forceDelete(User $user, create_roles_table $createRolesTable): bool
+    public function forceDelete(User $user, dish_meals $dishMeals): bool
     {
         //
     }

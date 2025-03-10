@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
         // TÖRLÉSI SORREND (FORDÍTOTT SORREND)
     DB::statement('DELETE FROM dish_meals');
     DB::statement('DELETE FROM menu_items');
-    DB::statement('DELETE FROM daily_menus');
+    DB::statement('DELETE FROM daily_menuses');
     DB::statement('DELETE FROM components');
     DB::statement('DELETE FROM dishes');
     DB::statement('DELETE FROM ingredients');
@@ -31,7 +31,7 @@ class DatabaseSeeder extends Seeder
     // AUTO_INCREMENT VISSZAÁLLÍTÁSA (opcionális)
     DB::statement('ALTER TABLE dish_meals AUTO_INCREMENT = 1');
     DB::statement('ALTER TABLE menu_items AUTO_INCREMENT = 1');
-    DB::statement('ALTER TABLE daily_menus AUTO_INCREMENT = 1');
+    DB::statement('ALTER TABLE daily_menuses AUTO_INCREMENT = 1');
     DB::statement('ALTER TABLE components AUTO_INCREMENT = 1');
     DB::statement('ALTER TABLE dishes AUTO_INCREMENT = 1');
     DB::statement('ALTER TABLE ingredients AUTO_INCREMENT = 1');
@@ -53,7 +53,7 @@ class DatabaseSeeder extends Seeder
         ComponentsSeeder::class,
         DailyMenusSeeder::class,
         MenuItemsSeeder::class,
-        DishMealSeeder::class,
+        DishMealsSeeder::class,
     ]);
     }
 }

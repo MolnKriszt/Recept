@@ -5,9 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class DailyMenus extends Model
+class Daily_menus extends Model
 {
-    /** @use HasFactory<\Database\Factories\DailyMenusFactory> */
     use HasFactory;
     public $timestamps = false;
 
