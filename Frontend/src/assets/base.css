@@ -1,0 +1,9 @@
+.main-window{
+  background-color: var(--bg-color);
+}
+
+html, body, #app, .main-window {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
