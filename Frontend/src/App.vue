@@ -10,7 +10,7 @@ import { RouterLink, RouterView } from "vue-router";
           <div class="container-fluid">
             <a class="navbar-brand" href="#">
               <img
-                src=""
+                src="../../pictures/icon.png"
                 alt="Logo"
                 width="30"
                 height="24"
