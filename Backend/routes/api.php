@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\RolesController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\AuthenticateMy;
@@ -22,5 +23,18 @@ Route::post('users', [UsersController::class, 'store'])
 Route::patch('users/{id}', [UsersController::class, 'update'])
     ->middleware('auth:sanctum');    
 Route::delete('users/{id}', [UsersController::class, 'destroy'])
+    ->middleware('auth:sanctum');
+//endregion
+
+//region roles
+Route::get('roles', [RolesController::class, 'index'])
+    ->middleware('auth:sanctum');
+Route::get('roles/{id}', [RolesController::class, 'show'])
+    ->middleware('auth:sanctum');
+Route::post('roles', [RolesController::class, 'store'])
+    ->middleware('auth:sanctum');    
+Route::patch('roles/{id}', [RolesController::class, 'update'])
+    ->middleware('auth:sanctum');    
+Route::delete('roles/{id}', [RolesController::class, 'destroy'])
     ->middleware('auth:sanctum');
 //endregion

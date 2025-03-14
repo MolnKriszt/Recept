@@ -68,3 +68,86 @@ Accept: application/json
 Authorization: Bearer {{token}}
 # ------------- /login, user -------------
 
+
+# ------------- roles -------------
+### get roles
+GET  {{host}}/api/roles
+Accept: application/json
+Authorization: Bearer {{token}}
+
+### get role by id
+GET  {{host}}/api/roles/1
+Accept: application/json
+Authorization: Bearer {{token}}
+
+### post role
+POST {{host}}/api/roles 
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}}
+
+{
+    "name": "jager"
+}
+
+### patch role
+PATCH {{host}}/api/roles/3
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}}
+
+{
+    "name": "jagercsicska"
+}
+
+### delete role
+DELETE {{host}}/api/roles/3
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}}
+# ------------- /roles -------------
+
+
+# ------------- categories -------------
+
+# ------------- /categories -------------
+
+
+# ------------- units -------------
+
+# ------------- /units -------------
+
+
+# ------------- ingredients -------------
+
+# ------------- /ingredients -------------
+
+
+# ------------- dishes -------------
+
+# ------------- /dishes -------------
+
+
+# ------------- components -------------
+
+# ------------- /components -------------
+
+
+# ------------- meals -------------
+
+# ------------- /meals -------------
+
+
+# ------------- daily_menus -------------
+
+# ------------- /daily_menus -------------
+
+
+# ------------- menu_items -------------
+
+# ------------- /menu_items -------------
+
+
+# ------------- dish_meals -------------
+
+# ------------- /dish_meals -------------
