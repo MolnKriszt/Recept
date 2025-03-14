@@ -45,24 +45,24 @@ Accept: application/json
 Authorization: Bearer {{token}}
 
 {
-    "name":  "test2",
+    "name": "test2",
     "email": "test2@example.com",
-    "password": "123"
-    
+    "password": "123",
+    "role_id": 1
 }
 
 ### patch user
-PATCH {{host}}/api/users/5
+PATCH {{host}}/api/users/2
 Content-Type: application/json
 Accept: application/json
 Authorization: Bearer {{token}}
 
 {
-    "password": "1234"
+    "name": "test3"
 }
 
 ### delete user
-DELETE {{host}}/api/users/4
+DELETE {{host}}/api/users/2
 Content-Type: application/json
 Accept: application/json
 Authorization: Bearer {{token}}
