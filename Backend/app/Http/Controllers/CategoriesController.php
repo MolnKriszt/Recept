@@ -13,7 +13,12 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        //
+        $rows = Categories::all();
+        $data = [
+            'message' => 'ok',
+            'data' => $rows
+        ];
+        return response()->json($data, options: JSON_UNESCAPED_UNICODE);
     }
 
     /**
@@ -21,30 +26,109 @@ class CategoriesController extends Controller
      */
     public function store(StorecategoriesRequest $request)
     {
-        //
+        $rows = Categories::where('name', $request['name'])
+            ->get();
+        if (count($rows)!=0) {
+            # már van ilyen email
+            $data = [
+                'message' => 'This categorie alredy exists',
+                'data' => [
+                    'name' => $request['name']
+                ]
+            ];
+        } else {
+            # még nincs ilyen email
+            $rows = Categories::create(attributes: $request->all());
+            $data = [
+                'message' => 'ok',
+                'data' => $rows
+            ];
+        }
+                    
+        return response()->json($data, options:JSON_UNESCAPED_UNICODE);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(categories $categories)
+    public function show(int $id)
     {
-        //
+        $row = Categories::find($id);
+
+        if ($row) {
+            $data = [
+                'message' => 'ok',
+                'data' => $row
+            ];
+        } else {
+            $data = [
+                'message' => 'Not found',
+                'data' => [
+                    'id' => $id
+                ]
+            ];
+        }
+        return response()->json($data, options: JSON_UNESCAPED_UNICODE);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdatecategoriesRequest $request, categories $categories)
+    public function update(UpdatecategoriesRequest $request, $id)
     {
-        //
+        $row = Categories::find($id);
+        if ($row) {
+            $rows = Categories::where('name', $request['name'])
+            ->get();
+            if (count($rows)!=0) {
+                # már van ilyen email
+                $data = [
+                    'message' => 'This categorie alredy exists',
+                    'data' => [
+                        'name' => $request['name']
+                    ]
+                ];
+            }else{
+                //nincs még ilyen email
+                $row->update($request->all());
+                $data = [
+                    'message' => 'ok',
+                    'data' => $row
+                ];
+            }
+        } else {
+            $data = [
+                'message' => 'Not found',
+                'data' => [
+                    'id' => $id
+                ]
+            ];
+        }
+        return response()->json($data, options:JSON_UNESCAPED_UNICODE);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(categories $categories)
+    public function destroy(int $id)
     {
-        //
+        $row = Categories::find($id);
+        if ($row) {
+            $row->delete();
+            $data = [
+                'message' => 'ok',
+                'data' => [
+                    'id' => $id
+                ]
+            ];
+        } else {
+            $data = [
+                'message' => 'Not found',
+                'data' => [
+                    'id' => $id
+                ]
+            ];
+        }
+        return response()->json($data, options: JSON_UNESCAPED_UNICODE);
     }
 }

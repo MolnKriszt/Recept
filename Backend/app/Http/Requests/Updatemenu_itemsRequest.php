@@ -11,7 +11,7 @@ class Updatemenu_itemsRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**

@@ -109,12 +109,82 @@ Authorization: Bearer {{token}}
 
 
 # ------------- categories -------------
+### get categories
+GET  {{host}}/api/categories
+Accept: application/json
+Authorization: Bearer {{token}}
 
+### get categorie by id
+GET  {{host}}/api/categories/12
+Accept: application/json
+Authorization: Bearer {{token}}
+
+### post categorie
+POST {{host}}/api/categories 
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}}
+
+{
+    "name": "jager",
+    "meal_id": 1
+}
+
+### patch categorie
+PATCH {{host}}/api/categories/13
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}}
+
+{
+    "name": "jagercsicska"
+}
+
+### delete categorie
+DELETE {{host}}/api/categories/13
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}}
 # ------------- /categories -------------
 
 
 # ------------- units -------------
+### get units
+GET  {{host}}/api/units
+Accept: application/json
+Authorization: Bearer {{token}}
 
+### get units by id
+GET  {{host}}/api/units/13
+Accept: application/json
+Authorization: Bearer {{token}}
+
+### post unit
+POST {{host}}/api/units 
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}}
+
+{
+    "name": "jager",
+    "meal_id": 1
+}
+
+### patch unit
+PATCH {{host}}/api/units/13
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}}
+
+{
+    "name": "jagercsicska"
+}
+
+### delete unit
+DELETE {{host}}/api/units/13
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}}
 # ------------- /units -------------
 
 
