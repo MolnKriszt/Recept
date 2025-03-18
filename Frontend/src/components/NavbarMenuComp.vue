@@ -14,8 +14,12 @@
           <div class="navbar-title">Receptek</div>
         </div>
         <div>
-          <!-- profile/login -->
-          <i class="bi profile-icon bi-person-bounding-box"></i>
+          <RouterLink
+            class="router-link"
+            :to="{ path: '/login' }"
+          >
+          <i class="bi profile-icon bi-person-bounding-box me-2"></i>
+          </RouterLink>
         </div>
       </div>
     </nav>
@@ -23,13 +27,28 @@
 </template>
 
 <script>
-export default {};
+import { useAuthStore } from "@/stores/useAuthStore.js";
+import { RouterLink, RouterView } from "vue-router";
+import axios from "axios";
+import { BASE_URL } from "@/helpers/baseUrls";
+export default {
+  data() {
+    return {
+      stateAuth: useAuthStore(),
+    };
+  },
+};
 </script>
 
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Bodoni+Moda+SC:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Platypi:ital,wght@0,300..800;1,300..800&family=Yanone+Kaffeesatz:wght@200..700&display=swap");
 
-.profile-icon{
+
+.router-link {
+  text-decoration: none;
+}
+
+.profile-icon {
   display: flex;
   align-content: center !important;
   color: var(--font-color-w-100);
@@ -37,10 +56,10 @@ export default {};
   transition: ease 0.3s;
 }
 
-.profile-icon:hover{
+.profile-icon:hover {
   cursor: pointer;
   transform: scale(1.1);
-  color: var(--font-color-g-20)
+  color: var(--font-color-g-20);
 }
 
 .navbar {

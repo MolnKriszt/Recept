@@ -26,6 +26,7 @@ class UpdateUsersRequest extends FormRequest
             'name' => 'nullable|string',
             'email' => 'nullable|email',
             'password' => 'nullable',
+            'number_of_people' => 'nullable|int'
         ];
     }
 }
