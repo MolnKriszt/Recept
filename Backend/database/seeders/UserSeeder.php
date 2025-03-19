@@ -17,6 +17,7 @@ class UserSeeder extends Seeder
                 'email' => 'test@example.com',
                 'password' => '123',
                 'role_id' => 1,
+                'number_of_people' => 1,
             ]);
         }
     }

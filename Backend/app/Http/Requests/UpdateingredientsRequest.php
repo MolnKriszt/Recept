@@ -22,7 +22,8 @@ class UpdateingredientsRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'id' => 'nullable|int',
+            'name' => 'nullable|string',
         ];
     }
 }

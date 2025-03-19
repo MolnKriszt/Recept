@@ -3,7 +3,11 @@
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\RolesController;
 use App\Http\Controllers\CategoriesController;
+<<<<<<< HEAD
 use App\Http\Controllers\UnitsController;
+=======
+use App\Http\Controllers\IngredientsController;
+>>>>>>> 014dbf69a4e5f35c26420954a1cb97fd345a8e76
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\AuthenticateMy;
@@ -52,6 +56,7 @@ Route::delete('categories/{id}', [CategoriesController::class, 'destroy'])
     ->middleware('auth:sanctum');
 //endregion
 
+<<<<<<< HEAD
 //region units
 Route::get('units', [UnitsController::class, 'index']);
 Route::get('units/{id}', [UnitsController::class, 'show']);
@@ -60,5 +65,17 @@ Route::post('units', [UnitsController::class, 'store'])
 Route::patch('units/{id}', [UnitsController::class, 'update'])
     ->middleware('auth:sanctum');    
 Route::delete('units/{id}', [UnitsController::class, 'destroy'])
+    ->middleware('auth:sanctum');
+//endregion
+=======
+//region ingredients
+Route::get('ingredients', [IngredientsController::class, 'index']);
+Route::get('ingredients/{id}', [IngredientsController::class, 'show']);
+Route::post('ingredients', [IngredientsController::class, 'store'])
+    ->middleware('auth:sanctum');    
+Route::patch('ingredients/{id}', [IngredientsController::class, 'update'])
+    ->middleware('auth:sanctum');    
+Route::delete('ingredients/{id}', [IngredientsController::class, 'destroy'])
+>>>>>>> 014dbf69a4e5f35c26420954a1cb97fd345a8e76
     ->middleware('auth:sanctum');
 //endregion

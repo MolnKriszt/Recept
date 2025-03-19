@@ -48,21 +48,22 @@ Authorization: Bearer {{token}}
     "name": "test2",
     "email": "test2@example.com",
     "password": "123",
-    "role_id": 1
+    "role_id": 1,
+    "number_of_people": 2
 }
 
 ### patch user
-PATCH {{host}}/api/users/2
+PATCH {{host}}/api/users/4
 Content-Type: application/json
 Accept: application/json
 Authorization: Bearer {{token}}
 
 {
-    "name": "test3"
+    "role_id": 2
 }
 
 ### delete user
-DELETE {{host}}/api/users/2
+DELETE {{host}}/api/users/3
 Content-Type: application/json
 Accept: application/json
 Authorization: Bearer {{token}}
@@ -189,7 +190,41 @@ Authorization: Bearer {{token}}
 
 
 # ------------- ingredients -------------
+### get ingredients
+GET  {{host}}/api/ingredients
+Accept: application/json
+Authorization: Bearer {{token}}
 
+### get ingredient by id
+GET  {{host}}/api/ingredients/1
+Accept: application/json
+Authorization: Bearer {{token}}
+
+### post ingredient
+POST {{host}}/api/ingredients
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}}
+
+{
+    "name": "Trappista sajt"
+}
+
+### patch ingredient
+PATCH {{host}}/api/ingredients/9
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}}
+
+{
+    "name": "Magyar Trappista sajt"
+}
+
+### delete ingredient
+DELETE {{host}}/api/ingredients/9
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}}
 # ------------- /ingredients -------------
 
 
