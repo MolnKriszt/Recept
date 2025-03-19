@@ -1,12 +1,14 @@
 <template>
   <div class="contanier d-flex justify-content-center align-items-center mt-5">
     <div class="card my-card">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-          content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+      <div class="my-card-header">
+        <h1 class="login-card-title">Login</h1>
+      </div>
+      <div class="my-card-body">
+        asd
+      </div>
+      <div class="my-card-footer">
+      asd
       </div>
     </div>
     <!-- <div class="row my-5">
@@ -108,8 +110,34 @@ export default {
 <style>
 .card{
   width: 350px;
-  height: 400px;
-
+  border-radius: 20px;
+}
+.my-card-header{
+  height: 15%;
+  border: none;
+  background-color: var(--bg-color-20);
+  border-radius: 20px 20px 0px 0px;
 }
 
+.my-card-body{
+  height: 65%;
+  background-color: var(--color-g-50);
+}
+
+.my-card-footer{
+  height: 20%;
+  border: none;
+  background-color: var(--bg-color-20);
+  border-radius: 0px 0px 20px 20px;
+}
+
+.login-card-title{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: "Yanone Kaffeesatz", sans-serif;
+  font-size: xxx-large;
+  
+}
 </style>
