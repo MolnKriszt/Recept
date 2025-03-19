@@ -91,7 +91,7 @@ Authorization: Bearer {{token}}
 }
 
 ### patch role
-PATCH {{host}}/api/roles/3
+PATCH {{host}}/api/roles/4
 Content-Type: application/json
 Accept: application/json
 Authorization: Bearer {{token}}
@@ -101,7 +101,7 @@ Authorization: Bearer {{token}}
 }
 
 ### delete role
-DELETE {{host}}/api/roles/3
+DELETE {{host}}/api/roles/4
 Content-Type: application/json
 Accept: application/json
 Authorization: Bearer {{token}}
@@ -155,7 +155,7 @@ Accept: application/json
 Authorization: Bearer {{token}}
 
 ### get units by id
-GET  {{host}}/api/units/13
+GET  {{host}}/api/units/4
 Accept: application/json
 Authorization: Bearer {{token}}
 
