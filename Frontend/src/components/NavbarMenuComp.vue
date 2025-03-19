@@ -15,10 +15,10 @@
         </div>
         <div>
           <RouterLink
+            :to="stateAuth.user ? { path: '/profile' } : { path: '/login' }"
             class="router-link"
-            :to="{ path: '/login' }"
-          >
-          <i class="bi profile-icon bi-person-bounding-box me-2"></i>
+            >
+          <i class="bi profile-icon bi-person-bounding-box me-2 "></i>
           </RouterLink>
         </div>
       </div>
@@ -37,6 +37,22 @@ export default {
       stateAuth: useAuthStore(),
     };
   },
+  methods: {
+    async Logout() {
+      const url = `${BASE_URL}/users/logout`;
+      const headers = {
+        Accept: "application/json",
+        Authorization: `Bearer ${this.stateAuth.token}`,
+      };
+      try {
+        const response = await axios.post(url, null, headers);
+      } catch (error) {
+        console.log(error);
+      }
+      this.stateAuth.clearStoredData();
+      this.$router.push("/");
+    },
+  },
 };
 </script>
 
@@ -52,13 +68,13 @@ export default {
   display: flex;
   align-content: center !important;
   color: var(--font-color-w-100);
-  font-size: xx-large;
+  font-size: 2rem;
   transition: ease 0.3s;
 }
 
 .profile-icon:hover {
   cursor: pointer;
-  transform: scale(1.1);
+  transform: scale(1.2);
   color: var(--font-color-g-20);
 }
 
