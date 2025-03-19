@@ -22,7 +22,10 @@ class Storedish_mealsRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'id' => 'nulable|int',
+            'name' => 'required|string',
+            'category:id' => 'required|int',
+            'recipe' => 'required|sting'
         ];
     }
 }

@@ -4,6 +4,8 @@ use App\Http\Controllers\UsersController;
 use App\Http\Controllers\RolesController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\IngredientsController;
+use App\Http\Controllers\DishesController;
+use App\Http\Controllers\ComponentsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\AuthenticateMy;
@@ -60,5 +62,27 @@ Route::post('ingredients', [IngredientsController::class, 'store'])
 Route::patch('ingredients/{id}', [IngredientsController::class, 'update'])
     ->middleware('auth:sanctum');    
 Route::delete('ingredients/{id}', [IngredientsController::class, 'destroy'])
+    ->middleware('auth:sanctum');
+//endregion
+
+//region dishes
+Route::get('dishes', [DishesController::class, 'index']);
+Route::get('dishes/{id}', [DishesController::class, 'show']);
+Route::post('dishes', [DishesController::class, 'store'])
+    ->middleware('auth:sanctum');    
+Route::patch('dishes/{id}', [DishesController::class, 'update'])
+    ->middleware('auth:sanctum');    
+Route::delete('dishes/{id}', [DishesController::class, 'destroy'])
+    ->middleware('auth:sanctum');
+//endregion
+
+//region components
+Route::get('components', [ComponentsController::class, 'index']);
+Route::get('components/{id}', [ComponentsController::class, 'show']);
+Route::post('components', [ComponentsController::class, 'store'])
+    ->middleware('auth:sanctum');    
+Route::patch('components/{id}', [ComponentsController::class, 'update'])
+    ->middleware('auth:sanctum');    
+Route::delete('components/{id}', [ComponentsController::class, 'destroy'])
     ->middleware('auth:sanctum');
 //endregion

@@ -229,16 +229,127 @@ Authorization: Bearer {{token}}
 
 
 # ------------- dishes -------------
+### get dishes
+GET  {{host}}/api/dishes
+Accept: application/json
+Authorization: Bearer {{token}}
 
+### get dish by id
+GET  {{host}}/api/dishes/2
+Accept: application/json
+Authorization: Bearer {{token}}
+
+### post dish
+POST {{host}}/api/dishes
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}}
+
+{
+    "name": "Almás morzsa",
+    "category_id": 12,
+    "recipe": "recept.txt"
+}
+
+### patch dish
+PATCH {{host}}/api/dishes/1
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}}
+
+{
+    "name": "Brassói"
+}
+
+### delete dish
+DELETE {{host}}/api/dishes/3
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}}
 # ------------- /dishes -------------
 
 
 # ------------- components -------------
+### get components
+GET  {{host}}/api/components
+Accept: application/json
+Authorization: Bearer {{token}}
 
+### get component by id
+GET  {{host}}/api/components/9
+Accept: application/json
+Authorization: Bearer {{token}}
+
+### post component
+POST {{host}}/api/components
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}}
+
+{
+    "quantity": 4,
+    "unit_id": 2,
+    "dish_id": 1,
+    "ingredient_id": 8,
+    "number_of_people": 4
+}
+
+### patch component
+PATCH {{host}}/api/components/1
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}}
+
+{
+    "name": 2
+}
+
+### delete component
+DELETE {{host}}/api/components/2
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}}
 # ------------- /components -------------
 
 
 # ------------- meals -------------
+### get meal
+GET  {{host}}/api/meals
+Accept: application/json
+Authorization: Bearer {{token}}
+
+### get meals by id
+GET  {{host}}/api/meals/2
+Accept: application/json
+Authorization: Bearer {{token}}
+
+### post meal
+POST {{host}}/api/meals
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}}
+
+{
+    "name": "ebéd harmadik fogás",
+    "category_id": 12,
+    "recipe": "recept.txt"
+}
+
+### patch meal
+PATCH {{host}}/api/meal/1
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}}
+
+{
+    "name": "Brassói"
+}
+
+### delete meal
+DELETE {{host}}/api/meals/3
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}}
 
 # ------------- /meals -------------
 
