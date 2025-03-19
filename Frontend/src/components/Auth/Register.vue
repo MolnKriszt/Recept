@@ -96,10 +96,10 @@ export default {
     return {
       urlApi: BASE_URL,
       user: {
-        name: "Iskola",
-        email: "iskolateszt@gmail.com",
-        password: "Iskola24",
-        passwordConfirmation: "Iskola24",
+        name: "",
+        email: "",
+        password: "",
+        passwordConfirmation: "",
       },
       store: useAuthStore(),
       errorMessage: null,

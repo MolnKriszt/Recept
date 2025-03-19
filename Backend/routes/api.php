@@ -3,6 +3,7 @@
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\RolesController;
 use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\IngredientsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\AuthenticateMy;
@@ -48,5 +49,16 @@ Route::post('categories', [CategoriesController::class, 'store'])
 Route::patch('categories/{id}', [CategoriesController::class, 'update'])
     ->middleware('auth:sanctum');    
 Route::delete('categories/{id}', [CategoriesController::class, 'destroy'])
+    ->middleware('auth:sanctum');
+//endregion
+
+//region ingredients
+Route::get('ingredients', [IngredientsController::class, 'index']);
+Route::get('ingredients/{id}', [IngredientsController::class, 'show']);
+Route::post('ingredients', [IngredientsController::class, 'store'])
+    ->middleware('auth:sanctum');    
+Route::patch('ingredients/{id}', [IngredientsController::class, 'update'])
+    ->middleware('auth:sanctum');    
+Route::delete('ingredients/{id}', [IngredientsController::class, 'destroy'])
     ->middleware('auth:sanctum');
 //endregion
