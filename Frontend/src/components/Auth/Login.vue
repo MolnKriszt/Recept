@@ -5,10 +5,14 @@
         <h1 class="login-card-title">Login</h1>
       </div>
       <div class="my-card-body">
-        asd
+        <input type="text" class="input-field" placeholder="Username" />
+        <input type="password" class="input-field" placeholder="Password" />
+        <button class="login-btn">Login</button>
       </div>
       <div class="my-card-footer">
-      asd
+        <RouterLink class="router-link" :to="{ path: '/register' }">
+          Create Account
+        </RouterLink>
       </div>
     </div>
     <!-- <div class="row my-5">
@@ -108,23 +112,111 @@ export default {
 </script>
 
 <style>
-.card{
-  width: 350px;
-  border-radius: 20px;
-}
-.my-card-header{
-  height: 15%;
-  border: none;
-  background-color: var(--bg-color-20);
-  border-radius: 20px 20px 0px 0px;
+body {
+  background-color: var(--bg-color);
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
 }
 
-.my-card-body{
-  height: 65%;
+.card {
+  background-color: var(--bg-color-20);
+  border-radius: 12px;
+  width: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.my-card-header {
+  background-color: var(--main-color);
+  padding: 20px;
+  text-align: center;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.login-card-title {
+  color: var(--font-color-w-100);
+  margin: 0;
+  font-size: 24px;
+}
+
+.my-card-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.input-field {
+  padding: 10px;
+  border: 1px solid var(--color-g-50);
+  border-radius: 8px;
+  background-color: var(--bg-color-20);
+  color: var(--font-color-w-100);
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.input-field:focus {
+  border-color: var(--font-color-g-20);
+  outline: none;
+}
+
+.login-btn {
+  background-color: var(--main-color);
+  color: var(--font-color-w-100);
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-btn:hover {
   background-color: var(--color-g-50);
 }
 
-.my-card-footer{
+.my-card-footer {
+  padding: 10px;
+  text-align: center;
+}
+
+.my-card-footer p {
+  color: var(--font-color-g-20);
+  font-size: 14px;
+  margin: 0;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.my-card-footer p:hover {
+  color: var(--font-color-w-100);
+}
+/* .login-input{
+
+} */
+/* .card{
+  width: 350px;
+  border-radius: 20px;
+} */
+
+/* .my-card-header{
+  height: 15%;
+  border: none;
+  background-color: var(--bg-color-20);
+  border-radius:20px 20px 0px 0px;
+} */
+/* 
+.my-card-body{
+  height: 65%;
+  background-color: var(--color-g-50);
+} */
+
+/* .my-card-footer{
   height: 20%;
   border: none;
   background-color: var(--bg-color-20);
@@ -139,5 +231,5 @@ export default {
   font-family: "Yanone Kaffeesatz", sans-serif;
   font-size: xxx-large;
   
-}
+} */
 </style>
