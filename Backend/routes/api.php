@@ -3,6 +3,7 @@
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\RolesController;
 use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\UnitsController;
 use App\Http\Controllers\IngredientsController;
 use App\Http\Controllers\DishesController;
 use App\Http\Controllers\ComponentsController;
@@ -51,6 +52,17 @@ Route::post('categories', [CategoriesController::class, 'store'])
 Route::patch('categories/{id}', [CategoriesController::class, 'update'])
     ->middleware('auth:sanctum');    
 Route::delete('categories/{id}', [CategoriesController::class, 'destroy'])
+    ->middleware('auth:sanctum');
+//endregion
+
+//region units
+Route::get('units', [UnitsController::class, 'index']);
+Route::get('units/{id}', [UnitsController::class, 'show']);
+Route::post('units', [UnitsController::class, 'store'])
+    ->middleware('auth:sanctum');    
+Route::patch('units/{id}', [UnitsController::class, 'update'])
+    ->middleware('auth:sanctum');    
+Route::delete('units/{id}', [UnitsController::class, 'destroy'])
     ->middleware('auth:sanctum');
 //endregion
 

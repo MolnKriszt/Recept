@@ -100,7 +100,7 @@ class CategoriesController extends Controller
             $data = [
                 'message' => 'Not found',
                 'data' => [
-                    'id' => $id
+                    'id' => $id  
                 ]
             ];
         }

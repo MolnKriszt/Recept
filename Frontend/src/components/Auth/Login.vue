@@ -1,6 +1,17 @@
 <template>
-  <div class="contanier">
-    <div class="row my-5">
+  <div class="contanier d-flex justify-content-center align-items-center mt-5">
+    <div class="card my-card">
+      <div class="my-card-header">
+        <h1 class="login-card-title">Login</h1>
+      </div>
+      <div class="my-card-body">
+        asd
+      </div>
+      <div class="my-card-footer">
+      asd
+      </div>
+    </div>
+    <!-- <div class="row my-5">
       <div class="col-md-4 mx-auto">
         <div class="card">
           <h5 class="card-header">Login</h5>
@@ -49,7 +60,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -97,4 +108,36 @@ export default {
 </script>
 
 <style>
+.card{
+  width: 350px;
+  border-radius: 20px;
+}
+.my-card-header{
+  height: 15%;
+  border: none;
+  background-color: var(--bg-color-20);
+  border-radius: 20px 20px 0px 0px;
+}
+
+.my-card-body{
+  height: 65%;
+  background-color: var(--color-g-50);
+}
+
+.my-card-footer{
+  height: 20%;
+  border: none;
+  background-color: var(--bg-color-20);
+  border-radius: 0px 0px 20px 20px;
+}
+
+.login-card-title{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: "Yanone Kaffeesatz", sans-serif;
+  font-size: xxx-large;
+  
+}
 </style>
