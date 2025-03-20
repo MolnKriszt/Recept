@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\UnitsController;
 use App\Http\Controllers\IngredientsController;
 use App\Http\Controllers\DishesController;
+use App\Http\Controllers\MealsController;
 use App\Http\Controllers\ComponentsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -96,5 +97,16 @@ Route::post('components', [ComponentsController::class, 'store'])
 Route::patch('components/{id}', [ComponentsController::class, 'update'])
     ->middleware('auth:sanctum');    
 Route::delete('components/{id}', [ComponentsController::class, 'destroy'])
+    ->middleware('auth:sanctum');
+//endregion
+
+//region components
+Route::get('meals', [MealsController::class, 'index']);
+Route::get('meals/{id}', [MealsController::class, 'show']);
+Route::post('meals', [MealsController::class, 'store'])
+    ->middleware('auth:sanctum');    
+Route::patch('meals/{id}', [MealsController::class, 'update'])
+    ->middleware('auth:sanctum');    
+Route::delete('meals/{id}', [MealsController::class, 'destroy'])
     ->middleware('auth:sanctum');
 //endregion

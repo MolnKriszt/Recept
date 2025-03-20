@@ -38,7 +38,7 @@ GET  {{host}}/api/users/1
 Accept: application/json
 Authorization: Bearer {{token}}
 
-### post user
+## post user
 POST {{host}}/api/users 
 Content-Type: application/json
 Accept: application/json
@@ -319,7 +319,7 @@ Accept: application/json
 Authorization: Bearer {{token}}
 
 ### get meals by id
-GET  {{host}}/api/meals/2
+GET  {{host}}/api/meals/3
 Accept: application/json
 Authorization: Bearer {{token}}
 
@@ -330,23 +330,21 @@ Accept: application/json
 Authorization: Bearer {{token}}
 
 {
-    "name": "ebéd harmadik fogás",
-    "category_id": 12,
-    "recipe": "recept.txt"
+    "name": "vacsora étel második fogás"
 }
 
 ### patch meal
-PATCH {{host}}/api/meal/1
+PATCH {{host}}/api/meals/8
 Content-Type: application/json
 Accept: application/json
 Authorization: Bearer {{token}}
 
 {
-    "name": "Brassói"
+    "name": "asdasd"
 }
 
 ### delete meal
-DELETE {{host}}/api/meals/3
+DELETE {{host}}/api/meals/7
 Content-Type: application/json
 Accept: application/json
 Authorization: Bearer {{token}}
