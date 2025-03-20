@@ -22,7 +22,12 @@ class StorecomponentsRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'id' => 'nullable|int',
+            'quantity' => 'required|int',
+            'unit_id' => 'required|int',
+            'dish_id' => 'required|int',
+            'ingredient_id' => 'required|int',
+            'number_of_people' => 'required|int'
         ];
     }
 }

@@ -22,7 +22,13 @@ class UpdatecomponentsRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'id' => 'nullable|int',
+            'quantity' => 'nullable|int',
+            'unit_id' => 'nullable|int',
+            'dish_id' => 'nullable|int',
+            'ingredient_id' => 'nullable|int',
+            'number_of_people' => 'nullable|int'
+
         ];
     }
 }
