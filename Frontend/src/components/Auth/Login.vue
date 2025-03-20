@@ -52,57 +52,6 @@
         </form>
       </div>
     </div>
-
-    <!-- <div class="row my-5">
-      <div class="col-md-4 mx-auto">
-        <div class="card">
-          <h5 class="card-header">Login</h5>
-          <div class="card-body">
-            <form @submit.prevent="userAuth">
-              <div class="form-group mb-3">
-                <input
-                  type="text"
-                  v-model="user.email"
-                  placeholder="Email*"
-                  class="form-control"
-                />
-              </div>
-              <div class="form-group mb-3">
-                <input
-                  type="password"
-                  v-model="user.password"
-                  placeholder="Password*"
-                  class="form-control"
-                />
-              </div>
-              <div class="form-group mb-3">
-                <div class="d-flex align-items-center justify-content-between">
-                  <div>
-                    <button type="submit" class="btn btn-primary me-4">
-                      Login
-                    </button>
-
-                    <div
-                      class="spinner-border m-0 p-0"
-                      role="status"
-                      v-if="errorMessage == '...'"
-                    >
-                      <span class="visually-hidden m-0">Loading...</span>
-                    </div>
-                    <span v-if="errorMessage != '...'">{{ errorMessage }}</span>
-                  </div>
-                  <div>
-                    <RouterLink class="router-link" :to="{ path: '/register' }">
-                      Create Account
-                    </RouterLink>
-                  </div>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div> -->
   </div>
 </template>
 

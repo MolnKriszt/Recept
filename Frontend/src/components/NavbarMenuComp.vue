@@ -46,7 +46,7 @@
               :to="stateAuth.user ? { path: '/profile' } : { path: '/login' }"
               class="router-link"
             >
-              <i class="bi profile-icon bi-person-bounding-box me-2" @click="toggleSidebar"></i>
+              <i class="bi profile-icon bi-person-bounding-box me-2"></i>
             </RouterLink>
 
             <!-- Profil és Kijelentkezés lista, alapértelmezetten elrejtve -->
@@ -69,14 +69,6 @@
         </div>
       </div>
     </nav>
-    <div class="sidebar" :class="{ 'open': sidebarOpen }">
-      <button class="close-btn" @click="toggleSidebar">&times;</button>
-      <RouterLink :to="{ path: '/profile' }" class="sidebar-item">Profil</RouterLink>
-      <button @click="Logout" class="sidebar-item logout-btn">Kijelentkezés</button>
-    </div>
-    
-    <!-- Overlay háttér, csak a sidebar mögötti területre -->
-    <div v-if="sidebarOpen" class="overlay" @click="toggleSidebar"></div>
   </header>
 </template>
 
@@ -96,9 +88,6 @@ export default {
     };
   },
   methods: {
-    toggleSidebar() {
-      this.sidebarOpen = !this.sidebarOpen;
-    },
     async Logout() {
       const url = `${BASE_URL}/users/logout`;
       const headers = {
@@ -120,20 +109,6 @@ export default {
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Bodoni+Moda+SC:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Platypi:ital,wght@0,300..800;1,300..800&family=Yanone+Kaffeesatz:wght@200..700&display=swap");
 
-.sidebar {
-  position: fixed;
-  top: 0;
-  right: -250px; /* Alapértelmezés szerint el van rejtve */
-  width: 250px;
-  height: 100%;
-  background-color: var(--main-color);
-  transition: right 0.3s ease;
-  padding-top: 60px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  z-index: 1050;
-}
 
 .router-link {
   text-decoration: none;
