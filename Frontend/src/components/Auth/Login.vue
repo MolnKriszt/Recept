@@ -5,16 +5,54 @@
         <h1 class="login-card-title">Login</h1>
       </div>
       <div class="my-card-body">
-        <input type="text" class="input-field" placeholder="Username" />
-        <input type="password" class="input-field" placeholder="Password" />
-        <button class="login-btn">Login</button>
-      </div>
-      <div class="my-card-footer">
-        <RouterLink class="router-link" :to="{ path: '/register' }">
-          Create Account
-        </RouterLink>
+        <form @submit.prevent="userAuth">
+          <div class="form-group mb-3">
+            <input
+              type="text"
+              v-model="user.email"
+              placeholder="Username"
+              class="input-field form-control"
+            />
+          </div>
+          <div class="form-group mb-3">
+            <input
+              type="password"
+              v-model="user.password"
+              placeholder="Password"
+              class="input-field form-control"
+            />
+          </div>
+          <div
+            class="form-group mb-3 d-flex align-items-center justify-content-between"
+          >
+            <div>
+              <button type="submit" class="login-btn btn btn-primary me-4">
+                Login
+              </button>
+              <div
+                class="spinner-border m-0 p-0"
+                role="status"
+                v-if="errorMessage == '...'"
+              ></div>
+            </div>
+            <RouterLink class="router-link" :to="{ path: '/register' }">
+              Create Account
+            </RouterLink>
+          </div>
+          <div
+            v-if="errorMessage"
+            class="alert mt-3"
+            :class="{
+              'alert-success': errorMessage === 'Sikeres bejelentkezés!',
+              'alert-danger': errorMessage === 'Sikertelen bejelentkezés!',
+            }"
+          >
+            {{ errorMessage }}
+          </div>
+        </form>
       </div>
     </div>
+
     <!-- <div class="row my-5">
       <div class="col-md-4 mx-auto">
         <div class="card">
