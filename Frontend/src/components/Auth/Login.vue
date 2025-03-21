@@ -25,16 +25,15 @@
           <div
             class="form-group mb-3 d-flex align-items-center justify-content-between"
           >
-            <div>
-              <button type="submit" class="login-btn btn btn-primary me-4">
-                Login
-              </button>
-              <div
-                class="spinner-border m-0 p-0"
-                role="status"
-                v-if="errorMessage == '...'"
-              ></div>
-            </div>
+          
+            <button type="submit" class="login-btn btn btn-primary me-4">
+              Login
+            </button>
+            <div
+              class="spinner-border m-0 mt- p-0"
+              role="status"
+              v-if="errorMessage == ''"
+            ></div>
             <RouterLink class="router-link" :to="{ path: '/register' }">
               Create Account
             </RouterLink>
@@ -72,7 +71,7 @@ export default {
   },
   methods: {
     async userAuth() {
-      this.errorMessage = "...";
+      this.errorMessage = "";
       const url = `${BASE_URL}/users/login`;
       const headers = {
         Accept: "application/json",
@@ -183,40 +182,4 @@ body {
 .my-card-footer p:hover {
   color: var(--font-color-w-100);
 }
-/* .login-input{
-
-} */
-/* .card{
-  width: 350px;
-  border-radius: 20px;
-} */
-
-/* .my-card-header{
-  height: 15%;
-  border: none;
-  background-color: var(--bg-color-20);
-  border-radius:20px 20px 0px 0px;
-} */
-/* 
-.my-card-body{
-  height: 65%;
-  background-color: var(--color-g-50);
-} */
-
-/* .my-card-footer{
-  height: 20%;
-  border: none;
-  background-color: var(--bg-color-20);
-  border-radius: 0px 0px 20px 20px;
-}
-
-.login-card-title{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  font-family: "Yanone Kaffeesatz", sans-serif;
-  font-size: xxx-large;
-  
-} */
 </style>
