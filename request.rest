@@ -340,11 +340,11 @@ Accept: application/json
 Authorization: Bearer {{token}}
 
 {
-    "name": "asdasd"
+    "name": "ebédek"
 }
 
 ### delete meal
-DELETE {{host}}/api/meals/7
+DELETE {{host}}/api/meals/8
 Content-Type: application/json
 Accept: application/json
 Authorization: Bearer {{token}}
