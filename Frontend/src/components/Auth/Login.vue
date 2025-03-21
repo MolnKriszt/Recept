@@ -5,66 +5,52 @@
         <h1 class="login-card-title">Login</h1>
       </div>
       <div class="my-card-body">
-        <input type="text" class="input-field" placeholder="Username" />
-        <input type="password" class="input-field" placeholder="Password" />
-        <button class="login-btn">Login</button>
-      </div>
-      <div class="my-card-footer">
-        <RouterLink class="router-link" :to="{ path: '/register' }">
-          Create Account
-        </RouterLink>
+        <form @submit.prevent="userAuth">
+          <div class="form-group mb-3">
+            <input
+              type="text"
+              v-model="user.email"
+              placeholder="Username"
+              class="input-field form-control"
+            />
+          </div>
+          <div class="form-group mb-3">
+            <input
+              type="password"
+              v-model="user.password"
+              placeholder="Password"
+              class="input-field form-control"
+            />
+          </div>
+          <div
+            class="form-group mb-3 d-flex align-items-center justify-content-between"
+          >
+          
+            <button type="submit" class="login-btn btn btn-primary me-4">
+              Login
+            </button>
+            <div
+              class="spinner-border m-0 mt- p-0"
+              role="status"
+              v-if="errorMessage == ''"
+            ></div>
+            <RouterLink class="router-link" :to="{ path: '/register' }">
+              Create Account
+            </RouterLink>
+          </div>
+          <div
+            v-if="errorMessage"
+            class="alert mt-3"
+            :class="{
+              'alert-success': errorMessage === 'Sikeres bejelentkezés!',
+              'alert-danger': errorMessage === 'Sikertelen bejelentkezés!',
+            }"
+          >
+            {{ errorMessage }}
+          </div>
+        </form>
       </div>
     </div>
-    <!-- <div class="row my-5">
-      <div class="col-md-4 mx-auto">
-        <div class="card">
-          <h5 class="card-header">Login</h5>
-          <div class="card-body">
-            <form @submit.prevent="userAuth">
-              <div class="form-group mb-3">
-                <input
-                  type="text"
-                  v-model="user.email"
-                  placeholder="Email*"
-                  class="form-control"
-                />
-              </div>
-              <div class="form-group mb-3">
-                <input
-                  type="password"
-                  v-model="user.password"
-                  placeholder="Password*"
-                  class="form-control"
-                />
-              </div>
-              <div class="form-group mb-3">
-                <div class="d-flex align-items-center justify-content-between">
-                  <div>
-                    <button type="submit" class="btn btn-primary me-4">
-                      Login
-                    </button>
-
-                    <div
-                      class="spinner-border m-0 p-0"
-                      role="status"
-                      v-if="errorMessage == '...'"
-                    >
-                      <span class="visually-hidden m-0">Loading...</span>
-                    </div>
-                    <span v-if="errorMessage != '...'">{{ errorMessage }}</span>
-                  </div>
-                  <div>
-                    <RouterLink class="router-link" :to="{ path: '/register' }">
-                      Create Account
-                    </RouterLink>
-                  </div>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div> -->
   </div>
 </template>
 
@@ -85,7 +71,7 @@ export default {
   },
   methods: {
     async userAuth() {
-      this.errorMessage = "...";
+      this.errorMessage = "";
       const url = `${BASE_URL}/users/login`;
       const headers = {
         Accept: "application/json",
@@ -196,40 +182,4 @@ body {
 .my-card-footer p:hover {
   color: var(--font-color-w-100);
 }
-/* .login-input{
-
-} */
-/* .card{
-  width: 350px;
-  border-radius: 20px;
-} */
-
-/* .my-card-header{
-  height: 15%;
-  border: none;
-  background-color: var(--bg-color-20);
-  border-radius:20px 20px 0px 0px;
-} */
-/* 
-.my-card-body{
-  height: 65%;
-  background-color: var(--color-g-50);
-} */
-
-/* .my-card-footer{
-  height: 20%;
-  border: none;
-  background-color: var(--bg-color-20);
-  border-radius: 0px 0px 20px 20px;
-}
-
-.login-card-title{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  font-family: "Yanone Kaffeesatz", sans-serif;
-  font-size: xxx-large;
-  
-} */
 </style>

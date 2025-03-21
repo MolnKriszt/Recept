@@ -1,7 +1,6 @@
 <template>
   <div>
-    <h1>Receptek</h1>
-    <img src="../../../pictures/icon.png" alt="">
+    <h1></h1>
   </div>
 </template>
 
@@ -9,5 +8,7 @@
 </script>
 
 <style>
+
+
 
 </style>
