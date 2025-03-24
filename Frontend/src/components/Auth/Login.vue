@@ -34,8 +34,8 @@
               role="status"
               v-if="errorMessage == ''"
             ></div>
-            <RouterLink class="router-link" :to="{ path: '/register' }">
-              Create Account
+            <RouterLink class="router-link create-account-text" :to="{ path: '/register' }">
+              Create Acounct
             </RouterLink>
           </div>
           <div
@@ -98,6 +98,10 @@ export default {
 </script>
 
 <style>
+.create-account-text{
+  color: rgba(0, 0, 0, 0.699);
+}
+
 body {
   background-color: var(--bg-color);
   font-family: Arial, sans-serif;
