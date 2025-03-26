@@ -1,3 +1,4 @@
+<!-- https://prismic.io/blog/css-animation-examples -->
 <template>
   <header>
     <nav class="navbar my-navbar bg-body-tertiary" ref="navbar">
