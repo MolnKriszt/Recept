@@ -47,51 +47,17 @@
         <ul
           class="menu-hover-fill flex flex-col items-start leading-none text-2xl uppercase space-y-4"
         >
-          <li data-bs-dismiss="offcanvas">
-            <RouterLink to="/profile" v-if="stateAuth.user">
-              Profile
-            </RouterLink>
+          <li data-bs-dismiss="offcanvas" v-if="stateAuth.user">
+            <RouterLink to="/profile">Profile</RouterLink>
           </li>
-          <li>
-            <a
-              href="#"
-              class="list-element"
-              data-text="Login"
-              data-bs-dismiss="offcanvas"
-            >
-              <RouterLink
-                :to="stateAuth.user ? { path: '/profile' } : { path: '/login' }"
-                class="router-link"
-              >
-                Login
-              </RouterLink>
-            </a>
+          <li data-bs-dismiss="offcanvas" v-if="!stateAuth.user">
+            <RouterLink to="/login">Login</RouterLink>
           </li>
-          <li v-if="stateAuth.user">
-            <a
-              href="#"
-              class="list-element"
-              data-text="Logout"
-              data-bs-dismiss="offcanvas"
-              @click="Logout()"
-            >
-              Logout
-            </a>
+          <li data-bs-dismiss="offcanvas" v-if="stateAuth.user">
+            <a href="#" @click="Logout()">Logout</a>
           </li>
-          <li>
-            <a
-              href="#"
-              class="list-element"
-              data-text="Admin"
-              data-bs-dismiss="offcanvas"
-            >
-              <RouterLink
-                :to="stateAuth.user ? { path: '/profile' } : { path: '/login' }"
-                class="router-link"
-              >
-                Admin
-              </RouterLink>
-            </a>
+          <li data-bs-dismiss="offcanvas" v-if="stateAuth.role_id == 1">
+            <RouterLink to="/admin">Admin</RouterLink>
           </li>
         </ul>
       </div>
