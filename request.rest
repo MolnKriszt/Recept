@@ -401,7 +401,7 @@ Accept: application/json
 Authorization: Bearer {{token}}
 
 ### get menu_item by id
-GET  {{host}}/api/menu_items/3
+GET  {{host}}/api/menu_items/2
 Accept: application/json
 Authorization: Bearer {{token}}
 
@@ -412,24 +412,24 @@ Accept: application/json
 Authorization: Bearer {{token}}
 
 {
-    "daily_menu_id": 1,
+    "daily_menu_id": 2,
     "meal_id": 1,
     "dish_id": 1,
     "is_optional": 1
 }
 
 ### patch menu_item
-PATCH {{host}}/api/menu_items/6
+PATCH {{host}}/api/menu_items/5
 Content-Type: application/json
 Accept: application/json
 Authorization: Bearer {{token}}
 
 {
-    "name": "asdasd"
+    "meal_id": 5
 }
 
 ### delete menu_item
-DELETE {{host}}/api/menu_items/6
+DELETE {{host}}/api/menu_items/7
 Content-Type: application/json
 Accept: application/json
 Authorization: Bearer {{token}}

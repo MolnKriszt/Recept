@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\menu_items;
+use App\Models\Menu_items;
 use App\Http\Requests\Storemenu_itemsRequest;
 use App\Http\Requests\Updatemenu_itemsRequest;
 
@@ -13,7 +13,7 @@ class MenuItemsController extends Controller
      */
     public function index()
     {
-        $rows = menu_items::all();
+        $rows = Menu_items::all();
         $data = [
             'message' => 'ok',
             'data' => $rows
@@ -26,19 +26,24 @@ class MenuItemsController extends Controller
      */
     public function store(Storemenu_itemsRequest $request)
     {
-        $rows = menu_items::where('id', $request['id'])
-        ->get();
+        $rows = Menu_items::where('daily_menu_id', $request['daily_menu_id'])
+                    ->where('meal_id', $request['meal_id'])
+                    ->where('dish_id', $request['dish_id'])
+                    ->get();
     if (count($rows)!=0) {
         # már van ilyen email
         $data = [
             'message' => 'This menu_item alredy exists',
             'data' => [
-                'id' => $request['id']
+                'id' =>  $rows['data']['id'],
+                'daily_menu_id' => $request['daily_menu_id'],
+                'meal_id' => $request['meal_id'],
+                'dish_id' => $request['dish_id']
             ]
         ];
     } else {
         # még nincs ilyen email
-        $rows = menu_items::create(attributes: $request->all());
+        $rows = Menu_items::create(attributes: $request->all());
         $data = [
             'message' => 'ok',
             'data' => $rows
@@ -51,9 +56,9 @@ class MenuItemsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(menu_items $id)
+    public function show(int $id)
     {
-        $row = menu_items::find($id);
+        $row = Menu_items::find($id);
 
         if ($row) {
             $data = [
@@ -76,20 +81,20 @@ class MenuItemsController extends Controller
      */
     public function update(Updatemenu_itemsRequest $request, $id)
     {
-        $row = menu_items::find($id);
+        $row = Menu_items::find($id);
         if ($row) {
-            $rows = menu_items::where('id', $request['id'])
-            ->get();
+            $rows = Menu_items::where('daily_menu_id', $request['daily_menu_id'])
+                    ->where('meal_id', $request['meal_id'])
+                    ->where('dish_id', $request['dish_id'])
+                    ->get();
             if (count($rows)!=0) {
-                # már van ilyen email
                 $data = [
-                    'message' => 'This menu_item alredy exists',
+                    'message' => 'This on this day this menu for this meal alredy exists',
                     'data' => [
                         'id' => $request['id']
                     ]
                 ];
             }else{
-                //nincs még ilyen email
                 $row->update($request->all());
                 $data = [
                     'message' => 'ok',
@@ -110,10 +115,10 @@ class MenuItemsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(menu_items $id)
+    public function destroy(int $id)
     {
         
-        $row = menu_items::find($id);
+        $row = Menu_items::find($id);
         if ($row) {
             $row->delete();
             $data = [
