@@ -22,7 +22,11 @@ class Storemenu_itemsRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'id' => 'nullable|int',
+            'daily_menu_id' => 'required|int',
+            'meal_id' => 'required|int',
+            'dish_id' => 'required|int',
+            'is_optional' => 'required|int'
         ];
     }
 }

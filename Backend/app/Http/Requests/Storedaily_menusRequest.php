@@ -22,7 +22,10 @@ class Storedaily_menusRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'id' => 'nullable|int',
+            'user_id' => 'required|int',
+            'days_of_week' => 'required|string',
+            'number_of_people' => 'required|int'
         ];
     }
 }

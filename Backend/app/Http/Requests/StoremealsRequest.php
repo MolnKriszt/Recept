@@ -23,7 +23,7 @@ class StoremealsRequest extends FormRequest
     {
         return [
             'id' => 'nullable|int',
-        'name' => 'required|string'
+            'name' => 'required|string'
         ];
     }
 }
