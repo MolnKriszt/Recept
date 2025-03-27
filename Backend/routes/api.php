@@ -10,6 +10,7 @@ use App\Http\Controllers\MealsController;
 use App\Http\Controllers\ComponentsController;
 use App\Http\Controllers\DailyMenusController;
 use App\Http\Controllers\MenuItemsController;
+use App\Http\Controllers\DishMealsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\AuthenticateMy;
@@ -132,5 +133,16 @@ Route::post('menu_items', [MenuItemsController::class, 'store'])
 Route::patch('menu_items/{id}', [MenuItemsController::class, 'update'])
     ->middleware('auth:sanctum');    
 Route::delete('menu_items/{id}', [MenuItemsController::class, 'destroy'])
+    ->middleware('auth:sanctum');
+//endregion
+
+//region dish_meals
+Route::get('dish_meals', [DishMealsController::class, 'index']);
+Route::get('dish_meals/{id}', [DishMealsController::class, 'show']);
+Route::post('dish_meals', [DishMealsController::class, 'store'])
+    ->middleware('auth:sanctum');    
+Route::patch('dish_meals/{id}', [DishMealsController::class, 'update'])
+    ->middleware('auth:sanctum');    
+Route::delete('dish_meals/{id}', [DishMealsController::class, 'destroy'])
     ->middleware('auth:sanctum');
 //endregion

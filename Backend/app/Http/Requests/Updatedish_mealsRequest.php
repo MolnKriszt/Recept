@@ -22,7 +22,9 @@ class Updatedish_mealsRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'id' => 'nullable|int',
+            'dish_id' => 'nullable|int',
+            'meal_id' => 'nullable|int'
         ];
     }
 }

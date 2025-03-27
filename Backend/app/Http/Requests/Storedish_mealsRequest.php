@@ -23,9 +23,8 @@ class Storedish_mealsRequest extends FormRequest
     {
         return [
             'id' => 'nulable|int',
-            'name' => 'required|string',
-            'category:id' => 'required|int',
-            'recipe' => 'required|sting'
+            'dish_id' => '|requiredint',
+            'meal_id' => 'required|int'
         ];
     }
 }

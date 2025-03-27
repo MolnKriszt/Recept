@@ -83,7 +83,7 @@ class MenuItemsController extends Controller
             if (count($rows)!=0) {
                 # már van ilyen email
                 $data = [
-                    'message' => 'This Meal alredy exists',
+                    'message' => 'This menu_item alredy exists',
                     'data' => [
                         'id' => $request['id']
                     ]

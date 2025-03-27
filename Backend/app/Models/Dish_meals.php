@@ -13,8 +13,6 @@ class Dish_meals extends Model
     protected $fillable = [
         'id',
         'dish_id',
-        'meal_id',
-        'days_of_week',
-        'number_of_people'
+        'meal_id'
     ];
 }

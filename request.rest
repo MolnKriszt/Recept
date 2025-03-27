@@ -412,14 +412,14 @@ Accept: application/json
 Authorization: Bearer {{token}}
 
 {
-    "daily_menu_id": 2,
-    "meal_id": 2,
-    "dish_id": 4,
-    "is_optional": 2
+    "daily_menu_id": 1,
+    "meal_id": 1,
+    "dish_id": 1,
+    "is_optional": 1
 }
 
 ### patch menu_item
-PATCH {{host}}/api/menu_items/7
+PATCH {{host}}/api/menu_items/6
 Content-Type: application/json
 Accept: application/json
 Authorization: Bearer {{token}}
@@ -429,7 +429,7 @@ Authorization: Bearer {{token}}
 }
 
 ### delete menu_item
-DELETE {{host}}/api/menu_items/8
+DELETE {{host}}/api/menu_items/6
 Content-Type: application/json
 Accept: application/json
 Authorization: Bearer {{token}}
@@ -437,5 +437,40 @@ Authorization: Bearer {{token}}
 
 
 # ------------- dish_meals -------------
+### get dish_meal
+GET  {{host}}/api/dish_meals
+Accept: application/json
+Authorization: Bearer {{token}}
 
+### get dish_meal by id
+GET  {{host}}/api/dish_meals/1
+Accept: application/json
+Authorization: Bearer {{token}}
+
+### post dish_meal
+POST {{host}}/api/dish_meals
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}}
+
+{
+    "dish_id": 1,
+    "meal_id": 3
+}
+
+### patch dish_meal
+PATCH {{host}}/api/dish_meals/7
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}}
+
+{
+    "name": "asdasd"
+}
+
+### delete dish_meal
+DELETE {{host}}/api/dish_meals/2
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}}
 # ------------- /dish_meals -------------
