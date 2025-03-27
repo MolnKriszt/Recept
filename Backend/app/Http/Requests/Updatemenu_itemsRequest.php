@@ -22,7 +22,11 @@ class Updatemenu_itemsRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'id' => 'nullable|int',
+            'daily_menu_id' => 'nullable|int',
+            'meal_id' => 'nullable|int',
+            'dish_id' => 'nullable|int',
+            'is_optional' => 'nullable|int'
         ];
     }
 }

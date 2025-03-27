@@ -344,7 +344,7 @@ Authorization: Bearer {{token}}
 }
 
 ### delete meal
-DELETE {{host}}/api/meals/8
+DELETE {{host}}/api/meals/9
 Content-Type: application/json
 Accept: application/json
 Authorization: Bearer {{token}}
@@ -353,15 +353,124 @@ Authorization: Bearer {{token}}
 
 
 # ------------- daily_menus -------------
+### get daily_menu
+GET  {{host}}/api/daily_menus
+Accept: application/json
+Authorization: Bearer {{token}}
+
+### get daily_menu by id
+GET  {{host}}/api/daily_menus/1
+Accept: application/json
+Authorization: Bearer {{token}}
+
+### post daily_menu
+POST {{host}}/api/daily_menus
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}}
+
+{
+    "user_id": 1,
+    "days_of_week": "h",
+    "number_of_people": 4
+}
+
+### patch daily_menu
+PATCH {{host}}/api/daily_menus/7
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}}
+
+{
+    "name": "asdasd"
+}
+
+### delete daily_menu
+DELETE {{host}}/api/daily_menus/8
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}}
 
 # ------------- /daily_menus -------------
 
 
 # ------------- menu_items -------------
+### get menu_item
+GET  {{host}}/api/menu_items
+Accept: application/json
+Authorization: Bearer {{token}}
 
+### get menu_item by id
+GET  {{host}}/api/menu_items/3
+Accept: application/json
+Authorization: Bearer {{token}}
+
+### post menu_item
+POST {{host}}/api/menu_items
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}}
+
+{
+    "daily_menu_id": 1,
+    "meal_id": 1,
+    "dish_id": 1,
+    "is_optional": 1
+}
+
+### patch menu_item
+PATCH {{host}}/api/menu_items/6
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}}
+
+{
+    "name": "asdasd"
+}
+
+### delete menu_item
+DELETE {{host}}/api/menu_items/6
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}}
 # ------------- /menu_items -------------
 
 
 # ------------- dish_meals -------------
+### get dish_meal
+GET  {{host}}/api/dish_meals
+Accept: application/json
+Authorization: Bearer {{token}}
 
+### get dish_meal by id
+GET  {{host}}/api/dish_meals/1
+Accept: application/json
+Authorization: Bearer {{token}}
+
+### post dish_meal
+POST {{host}}/api/dish_meals
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}}
+
+{
+    "dish_id": 1,
+    "meal_id": 3
+}
+
+### patch dish_meal
+PATCH {{host}}/api/dish_meals/7
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}}
+
+{
+    "name": "asdasd"
+}
+
+### delete dish_meal
+DELETE {{host}}/api/dish_meals/2
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}}
 # ------------- /dish_meals -------------

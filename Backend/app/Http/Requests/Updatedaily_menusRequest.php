@@ -22,7 +22,10 @@ class Updatedaily_menusRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'id' => 'nullable|int',
+            'use_id' => 'nullable|int',
+            'days_of_week' => 'nullable|string',
+            'number_of_people' => 'nullable|int'
         ];
     }
 }

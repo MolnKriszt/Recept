@@ -8,6 +8,9 @@ use App\Http\Controllers\IngredientsController;
 use App\Http\Controllers\DishesController;
 use App\Http\Controllers\MealsController;
 use App\Http\Controllers\ComponentsController;
+use App\Http\Controllers\DailyMenusController;
+use App\Http\Controllers\MenuItemsController;
+use App\Http\Controllers\DishMealsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\AuthenticateMy;
@@ -100,7 +103,7 @@ Route::delete('components/{id}', [ComponentsController::class, 'destroy'])
     ->middleware('auth:sanctum');
 //endregion
 
-//region components
+//region Meals
 Route::get('meals', [MealsController::class, 'index']);
 Route::get('meals/{id}', [MealsController::class, 'show']);
 Route::post('meals', [MealsController::class, 'store'])
@@ -108,5 +111,38 @@ Route::post('meals', [MealsController::class, 'store'])
 Route::patch('meals/{id}', [MealsController::class, 'update'])
     ->middleware('auth:sanctum');    
 Route::delete('meals/{id}', [MealsController::class, 'destroy'])
+    ->middleware('auth:sanctum');
+//endregion
+
+//region daily_menus
+Route::get('daily_menus', [DailyMenusController::class, 'index']);
+Route::get('daily_menus/{id}', [DailyMenusController::class, 'show']);
+Route::post('daily_menus', [DailyMenusController::class, 'store'])
+    ->middleware('auth:sanctum');    
+Route::patch('daily_menus/{id}', [DailyMenusController::class, 'update'])
+    ->middleware('auth:sanctum');    
+Route::delete('daily_menus/{id}', [DailyMenusController::class, 'destroy'])
+    ->middleware('auth:sanctum');
+//endregion
+
+//region menu_items
+Route::get('menu_items', [MenuItemsController::class, 'index']);
+Route::get('menu_items/{id}', [MenuItemsController::class, 'show']);
+Route::post('menu_items', [MenuItemsController::class, 'store'])
+    ->middleware('auth:sanctum');    
+Route::patch('menu_items/{id}', [MenuItemsController::class, 'update'])
+    ->middleware('auth:sanctum');    
+Route::delete('menu_items/{id}', [MenuItemsController::class, 'destroy'])
+    ->middleware('auth:sanctum');
+//endregion
+
+//region dish_meals
+Route::get('dish_meals', [DishMealsController::class, 'index']);
+Route::get('dish_meals/{id}', [DishMealsController::class, 'show']);
+Route::post('dish_meals', [DishMealsController::class, 'store'])
+    ->middleware('auth:sanctum');    
+Route::patch('dish_meals/{id}', [DishMealsController::class, 'update'])
+    ->middleware('auth:sanctum');    
+Route::delete('dish_meals/{id}', [DishMealsController::class, 'destroy'])
     ->middleware('auth:sanctum');
 //endregion
