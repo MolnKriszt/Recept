@@ -127,7 +127,7 @@ Accept: application/json
 Authorization: Bearer {{token}}
 
 {
-    "name": "jager",
+    "name": "Finom",
     "meal_id": 1
 }
 
@@ -138,7 +138,7 @@ Accept: application/json
 Authorization: Bearer {{token}}
 
 {
-    "name": "jagercsicska"
+    "name": "FinomEtel"
 }
 
 ### delete categorie
@@ -167,22 +167,22 @@ Accept: application/json
 Authorization: Bearer {{token}}
 
 {
-    "name": "jager",
+    "name": "késhegy",
     "meal_id": 1
 }
 
 ### patch unit
-PATCH {{host}}/api/units/13
+PATCH {{host}}/api/units/9
 Content-Type: application/json
 Accept: application/json
 Authorization: Bearer {{token}}
 
 {
-    "name": "jagercsicska"
+    "name": "nemkéshegy"
 }
 
 ### delete unit
-DELETE {{host}}/api/units/13
+DELETE {{host}}/api/units/9
 Content-Type: application/json
 Accept: application/json
 Authorization: Bearer {{token}}
@@ -235,7 +235,7 @@ Accept: application/json
 Authorization: Bearer {{token}}
 
 ### get dish by id
-GET  {{host}}/api/dishes/2
+GET  {{host}}/api/dishes/1
 Accept: application/json
 Authorization: Bearer {{token}}
 
@@ -252,7 +252,7 @@ Authorization: Bearer {{token}}
 }
 
 ### patch dish
-PATCH {{host}}/api/dishes/1
+PATCH {{host}}/api/dishes/2
 Content-Type: application/json
 Accept: application/json
 Authorization: Bearer {{token}}
@@ -262,7 +262,7 @@ Authorization: Bearer {{token}}
 }
 
 ### delete dish
-DELETE {{host}}/api/dishes/3
+DELETE {{host}}/api/dishes/2
 Content-Type: application/json
 Accept: application/json
 Authorization: Bearer {{token}}
@@ -276,7 +276,7 @@ Accept: application/json
 Authorization: Bearer {{token}}
 
 ### get component by id
-GET  {{host}}/api/components/9
+GET  {{host}}/api/components/8
 Accept: application/json
 Authorization: Bearer {{token}}
 
@@ -295,17 +295,17 @@ Authorization: Bearer {{token}}
 }
 
 ### patch component
-PATCH {{host}}/api/components/1
+PATCH {{host}}/api/components/7
 Content-Type: application/json
 Accept: application/json
 Authorization: Bearer {{token}}
 
 {
-    "name": 2
+    "ingredient_id": 8
 }
 
 ### delete component
-DELETE {{host}}/api/components/2
+DELETE {{host}}/api/components/9
 Content-Type: application/json
 Accept: application/json
 Authorization: Bearer {{token}}

@@ -26,32 +26,33 @@ class ComponentsController extends Controller
      */
     public function store(StorecomponentsRequest $request)
     {
-        $rows = components::where('name', $request['name'])
-        ->get();
-    if (count($rows)!=0) {
-        # már van ilyen email
-        $data = [
-            'message' => 'This component alredy exists',
-            'data' => [
-                'name' => $request['name']
-            ]
-        ];
-    } else {
-        # még nincs ilyen email
-        $rows = components::create(attributes: $request->all());
-        $data = [
-            'message' => 'ok',
-            'data' => $rows
-        ];
-    }
-                
-    return response()->json($data, options:JSON_UNESCAPED_UNICODE);
+
+        $rows = components::where('dish_id', $request['dish_id'])
+            ->where('ingredient_id', $request['ingredient_id'])
+            ->get();
+        if (count($rows) != 0) {
+            $data = [
+                'message' => 'This component for this dish alredy exists',
+                'data' => [
+                    'dish_id' => $request['dish_id'],
+                    'ingredient_id' => $request['ingredient_id']
+                ]
+            ];
+        } else {
+            $rows = components::create(attributes: $request->all());
+            $data = [
+                'message' => 'ok',
+                'data' => $rows
+            ];
+        }
+
+        return response()->json($data, options: JSON_UNESCAPED_UNICODE);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show($id)
+    public function show(int $id)
     {
         $row = components::find($id);
 
@@ -78,17 +79,20 @@ class ComponentsController extends Controller
     {
         $row = components::find($id);
         if ($row) {
-            $rows = components::where('name', $request['name'])
+            $rows = components::where('dish_id', $request['dish_id'])
+            ->where('ingredient_id', $request['ingredient_id'])
+            ->where('id', '!=', $id)
             ->get();
-            if (count($rows)!=0) {
+                
+            if (count($rows) != 0) {
                 # már van ilyen email
                 $data = [
-                    'message' => 'This component alredy exists',
+                    'message' => 'This email alredy exists',
                     'data' => [
-                        'name' => $request['name']
+                        'dish_id' => $request['dish_id']
                     ]
                 ];
-            }else{
+            } else {
                 //nincs még ilyen email
                 $row->update($request->all());
                 $data = [
@@ -104,13 +108,13 @@ class ComponentsController extends Controller
                 ]
             ];
         }
-        return response()->json($data, options:JSON_UNESCAPED_UNICODE);
+        return response()->json($data, options: JSON_UNESCAPED_UNICODE);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy($id)
+    public function destroy(int $id)
     {
         $row = components::find($id);
         if ($row) {

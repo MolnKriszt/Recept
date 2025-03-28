@@ -27,30 +27,30 @@ class MenuItemsController extends Controller
     public function store(Storemenu_itemsRequest $request)
     {
         $rows = Menu_items::where('daily_menu_id', $request['daily_menu_id'])
-                    ->where('meal_id', $request['meal_id'])
-                    ->where('dish_id', $request['dish_id'])
-                    ->get();
-    if (count($rows)!=0) {
-        # már van ilyen email
-        $data = [
-            'message' => 'This menu_item alredy exists',
-            'data' => [
-                'id' =>  $rows['data']['id'],
-                'daily_menu_id' => $request['daily_menu_id'],
-                'meal_id' => $request['meal_id'],
-                'dish_id' => $request['dish_id']
-            ]
-        ];
-    } else {
-        # még nincs ilyen email
-        $rows = Menu_items::create(attributes: $request->all());
-        $data = [
-            'message' => 'ok',
-            'data' => $rows
-        ];
-    }
-                
-    return response()->json($data, options:JSON_UNESCAPED_UNICODE);
+            ->where('meal_id', $request['meal_id'])
+            ->where('dish_id', $request['dish_id'])
+            ->get();
+        if (count($rows) != 0) {
+            # már van ilyen email
+            $data = [
+                'message' => 'This menu_item alredy exists',
+                'data' => [
+                    'id' => $rows['data']['id'],
+                    'daily_menu_id' => $request['daily_menu_id'],
+                    'meal_id' => $request['meal_id'],
+                    'dish_id' => $request['dish_id']
+                ]
+            ];
+        } else {
+            # még nincs ilyen email
+            $rows = Menu_items::create(attributes: $request->all());
+            $data = [
+                'message' => 'ok',
+                'data' => $rows
+            ];
+        }
+
+        return response()->json($data, options: JSON_UNESCAPED_UNICODE);
     }
 
     /**
@@ -84,17 +84,17 @@ class MenuItemsController extends Controller
         $row = Menu_items::find($id);
         if ($row) {
             $rows = Menu_items::where('daily_menu_id', $request['daily_menu_id'])
-                    ->where('meal_id', $request['meal_id'])
-                    ->where('dish_id', $request['dish_id'])
-                    ->get();
-            if (count($rows)!=0) {
+                ->where('meal_id', $request['meal_id'])
+                ->where('dish_id', $request['dish_id'])
+                ->get();
+            if (count($rows) != 0) {
                 $data = [
                     'message' => 'This on this day this menu for this meal alredy exists',
                     'data' => [
                         'id' => $request['id']
                     ]
                 ];
-            }else{
+            } else {
                 $row->update($request->all());
                 $data = [
                     'message' => 'ok',
@@ -109,7 +109,7 @@ class MenuItemsController extends Controller
                 ]
             ];
         }
-        return response()->json($data, options:JSON_UNESCAPED_UNICODE);
+        return response()->json($data, options: JSON_UNESCAPED_UNICODE);
     }
 
     /**
@@ -117,7 +117,7 @@ class MenuItemsController extends Controller
      */
     public function destroy(int $id)
     {
-        
+
         $row = Menu_items::find($id);
         if ($row) {
             $row->delete();

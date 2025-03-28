@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreignId('dish_id')->constrained('dishes')->onDelete('cascade');
             $table->foreignId('ingredient_id')->constrained('ingredients')->onDelete('cascade')->nullable();
             $table->integer('number_of_people');
+            $table->unique(['dish_id', 'ingredient_id']);
         });
     }
 

@@ -132,3 +132,4 @@ class DailyMenusController extends Controller
         return response()->json($data, options: JSON_UNESCAPED_UNICODE);
     }
 }
+// 
