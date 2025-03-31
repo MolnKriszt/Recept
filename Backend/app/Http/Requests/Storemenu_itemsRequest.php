@@ -26,7 +26,7 @@ class Storemenu_itemsRequest extends FormRequest
             'daily_menu_id' => 'required|int',
             'meal_id' => 'required|int',
             'dish_id' => 'required|int',
-            'is_optional' => 'required|int'
+            'is_optional' => 'nullable|boolean'
         ];
     }
 }

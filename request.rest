@@ -38,7 +38,7 @@ GET  {{host}}/api/users/1
 Accept: application/json
 Authorization: Bearer {{token}}
 
-## post user
+### post user
 POST {{host}}/api/users 
 Content-Type: application/json
 Accept: application/json
@@ -88,21 +88,21 @@ Accept: application/json
 Authorization: Bearer {{token}}
 
 {
-    "name": "jager"
+    "name": "test"
 }
 
 ### patch role
-PATCH {{host}}/api/roles/4
+PATCH {{host}}/api/roles/3
 Content-Type: application/json
 Accept: application/json
 Authorization: Bearer {{token}}
 
 {
-    "name": "jagercsicska"
+    "name": "test2"
 }
 
 ### delete role
-DELETE {{host}}/api/roles/4
+DELETE {{host}}/api/roles/3
 Content-Type: application/json
 Accept: application/json
 Authorization: Bearer {{token}}
@@ -334,7 +334,7 @@ Authorization: Bearer {{token}}
 }
 
 ### patch meal
-PATCH {{host}}/api/meals/8
+PATCH {{host}}/api/meals/6
 Content-Type: application/json
 Accept: application/json
 Authorization: Bearer {{token}}
@@ -344,7 +344,7 @@ Authorization: Bearer {{token}}
 }
 
 ### delete meal
-DELETE {{host}}/api/meals/9
+DELETE {{host}}/api/meals/6
 Content-Type: application/json
 Accept: application/json
 Authorization: Bearer {{token}}
@@ -371,18 +371,18 @@ Authorization: Bearer {{token}}
 
 {
     "user_id": 1,
-    "days_of_week": "h",
+    "days_of_week": "q",
     "number_of_people": 4
 }
 
 ### patch daily_menu
-PATCH {{host}}/api/daily_menus/7
+PATCH {{host}}/api/daily_menus/8
 Content-Type: application/json
 Accept: application/json
 Authorization: Bearer {{token}}
 
 {
-    "name": "asdasd"
+    "days_of_week": "qq"
 }
 
 ### delete daily_menu
@@ -419,7 +419,7 @@ Authorization: Bearer {{token}}
 }
 
 ### patch menu_item
-PATCH {{host}}/api/menu_items/5
+PATCH {{host}}/api/menu_items/6
 Content-Type: application/json
 Accept: application/json
 Authorization: Bearer {{token}}
@@ -429,7 +429,7 @@ Authorization: Bearer {{token}}
 }
 
 ### delete menu_item
-DELETE {{host}}/api/menu_items/7
+DELETE {{host}}/api/menu_items/6
 Content-Type: application/json
 Accept: application/json
 Authorization: Bearer {{token}}

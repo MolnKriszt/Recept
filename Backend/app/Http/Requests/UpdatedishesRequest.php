@@ -22,6 +22,7 @@ class UpdatedishesRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'id' => 'nullable|int',
             "name" => 'nullable|string',
             "categori_id" => 'nullable|int',
             "recipe" => 'nullable|string'

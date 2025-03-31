@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->string('days_of_week');
             $table->integer('number_of_people');
+            $table->unique(['user_id', 'days_of_week']);
         });
     }
 

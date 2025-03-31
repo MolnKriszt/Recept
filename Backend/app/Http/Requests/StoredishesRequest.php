@@ -22,7 +22,10 @@ class StoredishesRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'id' => 'nulable|int',
+            'name' => 'required|string',
+            'category_id' => 'required|int',
+            'recipe' => 'required|string',
         ];
     }
 }

@@ -8,50 +8,32 @@ use App\Http\Requests\Updatedaily_menusRequest;
 
 class DailyMenusController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
         $rows = daily_menus::all();
-        $data = [
-            'message' => 'ok',
-            'data' => $rows
-        ];
+        return response()->json(['data' => $rows], options: JSON_UNESCAPED_UNICODE);
+    }
+
+    public function store(Storedaily_menusRequest $request)
+    {
+        try {
+            $row = daily_menus::create($request->all());
+            $data = [
+                'message' => 'ok',
+                'data' => $row
+            ];
+        } catch (\Illuminate\Database\QueryException $e) {
+            $data = [
+                'message' => 'The post failed',
+                'data' => []
+            ];
+        }
+
         return response()->json($data, options: JSON_UNESCAPED_UNICODE);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Storedaily_menusRequest $request)
-    {
-        $rows = daily_menus::where('id', $request['id'])
-        ->get();
-    if (count($rows)!=0) {
-        # már van ilyen email
-        $data = [
-            'message' => 'This daily_menu alredy exists',
-            'data' => [
-                'id' => $request['id']
-            ]
-        ];
-    } else {
-        # még nincs ilyen email
-        $rows = daily_menus::create(attributes: $request->all());
-        $data = [
-            'message' => 'ok',
-            'data' => $rows
-        ];
-    }
-                
-    return response()->json($data, options:JSON_UNESCAPED_UNICODE);
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(daily_menus $id)
+    public function show(int $id)
     {
         $row = daily_menus::find($id);
 
@@ -71,31 +53,15 @@ class DailyMenusController extends Controller
         return response()->json($data, options: JSON_UNESCAPED_UNICODE);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Updatedaily_menusRequest $request, $id)
+    public function update(Updatedaily_menusRequest $request,int $id)
     {
         $row = daily_menus::find($id);
         if ($row) {
-            $rows = daily_menus::where('id', $request['id'])
-            ->get();
-            if (count($rows)!=0) {
-                # már van ilyen email
-                $data = [
-                    'message' => 'This daily_menu alredy exists',
-                    'data' => [
-                        'id' => $request['id']
-                    ]
-                ];
-            }else{
-                //nincs még ilyen email
-                $row->update($request->all());
-                $data = [
-                    'message' => 'ok',
-                    'data' => $row
-                ];
-            }
+            $row->update($request->all());
+            $data = [
+                'message' => 'ok',
+                'data' => $row
+            ];
         } else {
             $data = [
                 'message' => 'Not found',
@@ -104,13 +70,10 @@ class DailyMenusController extends Controller
                 ]
             ];
         }
-        return response()->json($data, options:JSON_UNESCAPED_UNICODE);
+        return response()->json($data, options: JSON_UNESCAPED_UNICODE);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(daily_menus $id)
+    public function destroy(int $id)
     {
         $row = daily_menus::find($id);
         if ($row) {
@@ -132,4 +95,3 @@ class DailyMenusController extends Controller
         return response()->json($data, options: JSON_UNESCAPED_UNICODE);
     }
 }
-// 

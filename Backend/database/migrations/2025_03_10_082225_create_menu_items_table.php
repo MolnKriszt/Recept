@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreignId('meal_id')->constrained('meals')->onDelete('cascade');
             $table->foreignId('dish_id')->constrained('dishes')->onDelete('cascade');
             $table->boolean('is_optional')->default(false);
+            $table->unique(['daily_menu_id', 'meal_id']);
         });
     }
 

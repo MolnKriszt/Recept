@@ -22,6 +22,7 @@ class UpdatecategoriesRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'id' => 'nullable|int',
             'name' => 'nullable|string',
             'meal_id' => 'nullable|integer'
         ];

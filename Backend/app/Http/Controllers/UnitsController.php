@@ -11,30 +11,22 @@ class UnitsController extends Controller
     public function index()
     {
         $rows = Units::all();
-        $data = [
-            'message' => 'ok',
-            'data' => $rows
-        ];
-        return response()->json($data, options: JSON_UNESCAPED_UNICODE);
+
+        return response()->json(['data' => $rows], options: JSON_UNESCAPED_UNICODE);
     }
 
     public function store(StoreunitsRequest $request)
     {
-        $rows = Units::where('name', $request['name'])
-            ->get();
-        if (count($rows)!=0) {
-
-            $data = [
-                'message' => 'This unit alredy exists',
-                'data' => [
-                    'name' => $request['name']
-                ]
-            ];
-        } else {
-            $rows = Units::create(attributes: $request->all());
+         try {
+            $row = Units::create($request->all());
             $data = [
                 'message' => 'ok',
-                'data' => $rows
+                'data' => $row
+            ];
+        } catch (\Illuminate\Database\QueryException $e) {
+            $data = [
+                'message' => 'The post failed',
+                'data' => []
             ];
         }
                     
@@ -58,29 +50,19 @@ class UnitsController extends Controller
                 ]
             ];
         }
+
         return response()->json($data, options: JSON_UNESCAPED_UNICODE);
     }
 
-    public function update(UpdateunitsRequest $request, $id)
+    public function update(UpdateunitsRequest $request,int $id)
     {
         $row = Units::find($id);
         if ($row) {
-            $rows = Units::where('name', $request['name'])
-            ->get();
-            if (count($rows)!=0) {
-                $data = [
-                    'message' => 'This unit alredy exists',
-                    'data' => [
-                        'name' => $request['name']
-                    ]
-                ];
-            }else{
-                $row->update($request->all());
-                $data = [
-                    'message' => 'ok',
-                    'data' => $row
-                ];
-            }
+            $row->update($request->all());
+            $data = [
+                'message' => 'ok',
+                'data' => $row
+            ];
         } else {
             $data = [
                 'message' => 'Not found',
@@ -89,6 +71,7 @@ class UnitsController extends Controller
                 ]
             ];
         }
+        
         return response()->json($data, options:JSON_UNESCAPED_UNICODE);
     }
 
