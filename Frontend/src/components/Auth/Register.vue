@@ -1,6 +1,8 @@
 <template>
-  <div class="container">
-    <div class="row my-5">
+  <div>
+
+    <div class="container">
+      <div class="row my-5">
       <div class="col-md-6 mx-auto">
         <div class="card">
           <h5 class="card-header text-center">Regisztráció</h5>
@@ -8,8 +10,8 @@
             <form @submit.prevent="userRegister">
               <div class="form-group mb-3">
                 <input
-                  type="text"
-                  v-model="user.name"
+                type="text"
+                v-model="user.name"
                   placeholder="Name*"
                   class="form-control"
                   required
@@ -35,37 +37,37 @@
               </div>
               <div class="form-group mb-3">
                 <input
-                  type="password"
+                type="password"
                   v-model="user.passwordConfirmation"
                   placeholder="Jelszó újra*"
                   class="form-control"
                   required
-                />
-              </div>
+                  />
+                </div>
 
               <div class="form-group mb-3">
                 <div class="d-flex align-items-center">
                   <button
-                    type="submit"
+                  type="submit"
                     class="btn btn-primary me-4"
                     :disabled="
                       isPasswordsMismatch || user.password.length === 0 || user.email.length === 0 || user.name === 0
-                    "
+                      "
                   >
-                    Register
-                  </button>
+                  Register
+                </button>
                   <button
-                    type="button"
+                  type="button"
                     class="btn btn-secondary me-4"
                     @click="onClickMegsem()"
                   >
-                    Mégsem
-                  </button>
+                  Mégsem
+                </button>
 
-                  <div
-                    class="spinner-border m-0 p-0"
-                    role="status"
-                    v-if="errorMessage === '...'"
+                <div
+                class="spinner-border m-0 p-0"
+                role="status"
+                v-if="errorMessage === '...'"
                   >
                     <span class="visually-hidden m-0">Loading...</span>
                   </div>
@@ -84,6 +86,7 @@
       </div>
     </div>
   </div>
+</div>
 </template>
 
 <script>

@@ -42,14 +42,11 @@ Authorization: Bearer {{token}}
 POST {{host}}/api/users 
 Content-Type: application/json
 Accept: application/json
-Authorization: Bearer {{token}}
 
 {
     "name": "test2",
     "email": "test2@example.com",
-    "password": "123",
-    "role_id": 1,
-    "number_of_people": 2
+    "password": "123"
 }
 
 ### patch user

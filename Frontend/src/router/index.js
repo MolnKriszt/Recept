@@ -35,6 +35,12 @@ const router = createRouter({
       component: () => import('@/components/Auth/Profile.vue'),
       meta: { title: (route) => 'Register' }
     },
+    {
+      path: '/loginregister',
+      name: 'loginregister',
+      component: () => import('@/components/Auth/LoginRegister.vue'),
+      meta: { title: (route) => 'LoginAndRegister' }
+    },
   ],
 })
 

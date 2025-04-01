@@ -27,8 +27,7 @@ Route::get('users', [UsersController::class, 'index'])
     ->middleware('auth:sanctum');
 Route::get('users/{id}', [UsersController::class, 'show'])
     ->middleware('auth:sanctum');
-Route::post('users', [UsersController::class, 'store'])
-    ->middleware('auth:sanctum');    
+Route::post('users', [UsersController::class, 'store']);    
 Route::patch('users/{id}', [UsersController::class, 'update'])
     ->middleware('auth:sanctum');    
 Route::delete('users/{id}', [UsersController::class, 'destroy'])

@@ -62,7 +62,7 @@ export default {
   data() {
     return {
       user: {
-        email: "test@example.com",
+        email: "admin@admin.com",
         password: 123,
       },
       store: useAuthStore(),
