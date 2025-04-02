@@ -1,178 +1,114 @@
 <template>
   <div class="container">
-    <div class="row my-5">
-      <div class="col-md-6 mx-auto">
-        <div class="card">
-          <h5 class="card-header text-center">Profil módosítás</h5>
-          <div class="card-body">
-            <form @submit.prevent="updateProfile">
-              <div class="form-group mb-3">
-                <label for="name">Name</label>
-                <input
-                  type="text"
-                  id="name"
-                  v-model="user.name"
-                  placeholder="Name"
-                  class="form-control"
-                  :disabled="loading"
-                />
-              </div>
-              <div class="form-group mb-3">
-                <label for="email">Email</label>
-                <input
-                  type="email"
-                  id="email"
-                  v-model="user.email"
-                  placeholder="Email"
-                  class="form-control"
-                  :disabled="loading"
-                />
-              </div>
-              <!-- <div class="form-group mb-3">
-                <label for="currentPassword">Jelenlegi jelszó</label>
-                <input
-                  type="password"
-                  id="currentPassword"
-                  v-model="user.currentPassword"
-                  placeholder="Jelenlegi jelszó"
-                  class="form-control"
-                  :disabled="loading"
-                />
-              </div> -->
-              <div class="form-group mb-3">
-                <label for="newPassword">Új jelszó</label>
-                <input
-                  type="password"
-                  id="newPassword"
-                  v-model="user.newPassword"
-                  placeholder="Új jelszó"
-                  class="form-control"
-                  :disabled="loading"
-                />
-              </div>
-
-              <div class="d-flex align-items-center">
-                <button
-                  type="submit"
-                  class="btn btn-primary me-4"
-                  :disabled="loading"
-                >
-                  Frissítés
-                </button>
-
-                <div
-                  class="spinner-border m-0 p-0"
-                  role="status"
-                  v-if="loading"
-                >
-                  <span class="visually-hidden m-0">Loading...</span>
-                </div>
-
-                <span v-if="errorMessage" class="text-danger">{{
-                  errorMessage
-                }}</span>
-                <span v-if="successMessage" class="text-success">{{
-                  successMessage
-                }}</span>
-              </div>
-            </form>
-          </div>
+    <div class="form-container">
+      <form @submit.prevent="saveProfile">
+        <h1>Profile update</h1>
+        <span>Keep your details up to date</span>
+        <input v-model="user.name" type="text" placeholder="Full Name" required>
+        <input v-model="user.email" type="email" placeholder="Email Address" required>
+        <input v-model="user.password" type="password" placeholder="New Password" required>
+        <input v-model="user.passwordConfirmation" type="password" placeholder="Confirm Password" required>
+        <div class="mood-selector">
+          <label>Choose your mood:</label>
+          <select v-model="user.mood">
+            <option value="happy">😃 Happy</option>
+            <option value="neutral">😐 Neutral</option>
+            <option value="sad">😢 Sad</option>
+            <option value="angry">😠 Angry</option>
+          </select>
         </div>
-      </div>
+        <button type="submit" :disabled="isPasswordsMismatch">Save Changes</button>
+        <div v-if="isPasswordsMismatch" class="alert alert-danger mt-3">
+          Passwords do not match!
+        </div>
+      </form>
     </div>
   </div>
 </template>
 
 <script>
-import { useAuthStore } from "../../stores/useAuthStore.js";
-import axios from "axios";
-import { BASE_URL } from "../../helpers/baseUrls";
-
 export default {
   data() {
     return {
-      urlApi: BASE_URL,
       user: {
-        name: "",
-        email: "",
-        // currentPassword: "",
-        newPassword: "",
+        name: '',
+        email: '',
+        password: '',
+        passwordConfirmation: '',
+        mood: 'happy',
       },
-      id: null,
-      loading: false,
-      errorMessage: null,
-      successMessage: null,
-      stateAuth: useAuthStore(),
     };
   },
-  mounted() {
-    this.id = this.stateAuth.id;
-    this.getAccountInfo();
+  computed: {
+    isPasswordsMismatch() {
+      return this.user.password !== this.user.passwordConfirmation;
+    },
   },
   methods: {
-    async getAccountInfo() {
-      this.loading = true;
-      const url = `${this.urlApi}/users/${this.id}`;
-      const token = this.stateAuth.token;
-
-      const headers = {
-        Accept: "application/json",
-        Authorization: `Bearer ${token}`,
-      };
-      const response = await axios.get(url, { headers });
-      this.user.name = this.stateAuth.user || "";
-      this.user.email = response.data.data.email;
-      this.loading = false;
-    },
-
-    async updateProfile() {
-      this.loading = true;
-      const url = `${this.urlApi}/users/${this.id}`;
-      const token = this.stateAuth.token;
-
-      const headers = {
-        Accept: "application/json",
-        Authorization: `Bearer ${token}`,
-      };
-
-      const data = {};
-
-      if (this.user.name) {
-        data.name = this.user.name;
+    saveProfile() {
+      if (this.isPasswordsMismatch) {
+        alert('Passwords do not match!');
+        return;
       }
-      if (this.user.email) {
-        data.email = this.user.email;
-      }
-      if (this.user.newPassword) {
-        data.password = this.user.newPassword;
-      }
-
-      try {
-        const response = await axios.patch(url, data, { headers });
-        if (response.data.message === "ok") {
-          this.loading = false;
-          this.stateAuth.user = this.user.name;
-          this.successMessage = "Profil sikeresen módosítva!";
-          this.errorMessage = null;
-          setTimeout(() => {
-            this.successMessage = null;
-          }, 1000);
-        } else {
-          this.loading = false;
-          this.errorMessage = response.data.message;
-          this.successMessage = null;
-          setTimeout(() => {
-            this.errorMessage = null;
-          }, 1000);
-        }
-      } catch (error) {
-        this.loading = false;
-        this.successMessage = null;
-      }
+      console.log('Profile saved:', this.user);
+      alert('Profile successfully updated! Your mood: ' + this.user.mood);
     },
   },
 };
 </script>
 
-<style scoped>
+<style>
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,800");
+* { box-sizing: border-box; }
+.container {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  width: 320px;
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  
+  font-weight: bold;
+  margin: 0;
+}
+
+input, select {
+  background-color: #eee;
+  border: none;
+  padding: 10px;
+  margin: 6px 0;
+  width: 100%;
+}
+.mood-selector {
+  margin: 10px 0;
+  text-align: left;
+}
+button {
+  border-radius: 20px;
+  border: 1px solid #ff4b2b;
+  background-color: #ff4b2b;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 12px 40px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: transform 80ms ease-in;
+}
+button:active {
+  transform: scale(0.95);
+}
+.alert {
+  padding: 8px;
+  border-radius: 5px;
+  margin-top: 8px;
+  font-size: 12px;
+}
+.alert-danger {
+  background-color: #ff4b2b;
+  color: white;
+}
 </style>

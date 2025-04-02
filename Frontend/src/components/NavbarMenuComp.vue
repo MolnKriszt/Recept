@@ -51,7 +51,7 @@
             <RouterLink to="/profile">Profile</RouterLink>
           </li>
           <li data-bs-dismiss="offcanvas" v-if="!stateAuth.user">
-            <RouterLink to="/login">Login</RouterLink>
+            <RouterLink to="/loginregister">Login/Register</RouterLink>
           </li>
           <li data-bs-dismiss="offcanvas" v-if="stateAuth.user">
             <a href="#" @click="Logout()">Logout</a>

@@ -6,9 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
+
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
@@ -18,10 +16,11 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
-            $table->foreignId('role_id')->constrained('roles')->default("2")->onDelete('cascade')->onUpdate('cascade')->nullable();
+            $table->unsignedBigInteger('role_id')->nullable();
             $table->integer('number_of_people')->nullable();
             $table->timestamps();
         });
+        
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {
             $table->string('email')->primary();
@@ -37,6 +36,16 @@ return new class extends Migration
             $table->longText('payload');
             $table->integer('last_activity')->index();
         });
+
+
+         // Alapértelmezett érték beállítása az adatbázis szintjén
+         DB::statement('ALTER TABLE users ALTER COLUMN role_id SET DEFAULT 2');
+
+         // Külső kulcs hozzáadása
+         Schema::table('users', function (Blueprint $table) {
+             $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade')->onUpdate('cascade');
+         });
+
     }
 
     /**

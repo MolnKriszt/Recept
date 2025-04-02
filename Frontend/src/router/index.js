@@ -18,18 +18,6 @@ const router = createRouter({
       meta: { title: (route) => 'Főoldal' }
     },
     {
-      path: '/login',
-      name: 'login',
-      component: () => import('@/components/Auth/Login.vue'),
-      meta: { title: (route) => 'Login' }
-    },
-    {
-      path: '/register',
-      name: 'register',
-      component: () => import('@/components/Auth/Register.vue'),
-      meta: { title: (route) => 'Register' }
-    },
-    {
       path: '/profile',
       name: 'profile',
       component: () => import('@/components/Auth/Profile.vue'),
