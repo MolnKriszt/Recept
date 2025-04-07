@@ -115,6 +115,8 @@ export default {
     },
     togglePanel(direction) {
       this.isRightPanelActive = direction === "right" ? false : true;
+      console.log(this.isRightPanelActive);
+      
     },
     async userRegister() {
       this.errorMessage = "...";
@@ -232,13 +234,17 @@ input {
 
 .container {
   background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-  position: relative;
+  border-radius: 0; /* Eltávolítva a lekerekítést, hogy teljes képernyős legyen */
+  box-shadow: none; /* Árnyék nélkül jobban illeszkedik a teljes képernyőhöz */
+  /* position: fixed; */
+  /* top: 0; */
+  /* left: 0; */
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
-  width: 768px;
-  max-width: 100%;
-  min-height: 480px;
+  transition: transform 0.6s ease-in-out;
 }
 
 .form-container {
