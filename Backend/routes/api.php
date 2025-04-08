@@ -18,20 +18,25 @@ use App\Http\Middleware\AuthenticateMy;
 Route::get('/', function(){
     return 'API';
 });
+// Példa: Admin token, mindenhez hozzáféréssel
+$adminToken = $user->createToken('admin-token', ['admin:access'])->plainTextToken;
+
+// Példa: Korlátozott hozzáférésű token
+$limitedToken = $user->createToken('limited-token', ['sports:create'])->plainTextToken;
 
 
 //region users
 Route::post('users/login', [UsersController::class, 'login']);
 Route::post('users/logout', [UsersController::class, 'logout']);
 Route::get('users', [UsersController::class, 'index'])
-    ->middleware('auth:sanctum');
+    ->middleware('auth:sanctum', 'ability:users:index');
 Route::get('users/{id}', [UsersController::class, 'show'])
-    ->middleware('auth:sanctum');
+    ->middleware('auth:sanctum', 'ability:users:show');
 Route::post('users', [UsersController::class, 'store']);    
 Route::patch('users/{id}', [UsersController::class, 'update'])
-    ->middleware('auth:sanctum');    
+    ->middleware('auth:sanctum' ,'ability:users:update');    
 Route::delete('users/{id}', [UsersController::class, 'destroy'])
-    ->middleware('auth:sanctum');
+    ->middleware('auth:sanctum', 'ability:users:destroy');
 //endregion
 
 //region roles

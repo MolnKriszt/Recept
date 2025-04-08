@@ -24,6 +24,18 @@ const router = createRouter({
       meta: { title: (route) => 'Register' }
     },
     {
+      path: '/login',
+      name: 'login',
+      component: () => import('@/components/Auth/Login.vue'),
+      meta: { title: (route) => 'Login' }
+    },
+    {
+      path: '/register',
+      name: 'register',
+      component: () => import('@/components/Auth/Register.vue'),
+      meta: { title: (route) => 'Register' }
+    },
+    {
       path: '/loginregister',
       name: 'loginregister',
       component: () => import('@/components/Auth/LoginRegister.vue'),

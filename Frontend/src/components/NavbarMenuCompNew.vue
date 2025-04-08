@@ -13,13 +13,19 @@
         <li v-if="stateAuth.user" class="nav-bar-item">
           <RouterLink to="/profile">Profile</RouterLink>
         </li>
-        <li v-if="!stateAuth.user">
+        <li v-if="!stateAuth.user" class="nav-bar-item">
           <RouterLink to="/loginregister">Login/Register</RouterLink>
         </li>
-        <li v-if="stateAuth.user">
+        <li v-if="!stateAuth.user" class="nav-bar-item">
+          <RouterLink to="/login">Login</RouterLink>
+        </li>
+        <li v-if="!stateAuth.user" class="nav-bar-item">
+          <RouterLink to="/register">Register</RouterLink>
+        </li>
+        <li v-if="stateAuth.user" class="nav-bar-item">
           <a href="#" @click="Logout()">Logout</a>
         </li>
-        <li v-if="stateAuth.role_id == 1">
+        <li v-if="stateAuth.role_id == 1" class="nav-bar-item">
           <RouterLink to="/admin">Admin</RouterLink>
         </li>
       </ul>
@@ -33,12 +39,11 @@
         asd
       </button>
       <i
-        class="bi bi-person-circle"
+        class="bi bi-profile bi-person-circle"
         data-bs-toggle="modal"
         data-bs-target="#exampleModal"
       ></i>
     </div>
-    <ProfileModal />
   </div>
 </template>
   
@@ -47,7 +52,6 @@ import { useAuthStore } from "@/stores/useAuthStore.js";
 import { RouterLink, RouterView } from "vue-router";
 import axios from "axios";
 import { BASE_URL } from "@/helpers/baseUrls";
-import ProfileModal from "@/components/ProfileModal.vue";
 export default {
   data() {
     return {
@@ -75,26 +79,18 @@ export default {
 </script>
   
 <style scoped>
-i {
-  font-size: x-large;
-}
 
-body {
-  background: #000 url(https://unsplash.it/1600/1000/?random);
-  background-size: cover;
-  background-position: center;
-  font-family: "Open Sans", sans-serif;
+
+.bi-profile {
+  font-size: x-large;
 }
 
 .header-container {
   position: sticky;
-  top: 0;
-  left: 0;
-  right: 0;
   background: rgba(0, 0, 0, 0.9);
   color: white;
   padding: 0 2rem;
-  box-shadow: 0 0 40px rgba(0, 0, 0, 0.03);
+  /* box-shadow: 0 0 40px rgba(0, 0, 0, 0.03); */
   height: 6rem;
   display: flex;
   align-items: center;
@@ -106,40 +102,43 @@ body {
   align-items: center;
   height: 100%;
   margin: 0 auto;
-  overflow: hidden;
+  overflow: ;
 }
 
 .nav-bar-menu {
+  list-style: none;
   display: flex;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
-.nav-bar-link {
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
+.nav-bar-item {
+  width: 6rem;             /* legyen négyzet */
+  height: 6rem;
+  display: flex;           /* középre igazítás */
   align-items: center;
   justify-content: center;
-  height: 3.5rem;
-  width: 10rem;
+  text-align: center;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease;
+}
+
+.nav-bar-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+}
+
+.nav-bar-item a, 
+.nav-bar-item RouterLink {
   color: white;
   text-decoration: none;
-  text-transform: uppercase;
-  transition: 500ms ease all;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
 }
 
-.nav-bar-link:hover i {
-  color: #c4151c;
-}
-
-.nav-bar-item::before {
-  content: "";
-  position: absolute;
-  left: -8rem;
-  margin-left: 5rem;
-  bottom: -1.25rem;
-  height: 0.5rem;
-  width: 2px;
-  background: #c4151c;
-}
 </style>
   
