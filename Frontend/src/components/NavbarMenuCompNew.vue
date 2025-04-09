@@ -22,7 +22,8 @@
       </ul>
     </nav>
     <div class="div-profile">
-      <p>asdasd</p>
+      <!-- <p v-if="stateAuth.user" class="p-logged-name">{{stateAuth.user}}</p> -->
+      <p v-if="stateAuth.user" class="p-logged-name"></p>
       <i
         class="bi bi-profile bi-person-circle"
         data-bs-toggle="modal"
@@ -64,12 +65,17 @@ export default {
 </script>
   
 <style scoped>
+.p-logged-name{
+  margin: 0;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
 .div-profile{
   display: flex;
   align-items: center;
   gap: 1rem;
-  margin: 0;
-  padding: 0;
 }
 
 .bi-profile {
