@@ -10,17 +10,8 @@
     </div>
     <nav class="nav-bar">
       <ul class="nav-bar-menu">
-        <li v-if="stateAuth.user" class="nav-bar-item">
-          <RouterLink to="/profile">Profile</RouterLink>
-        </li>
-        <li v-if="!stateAuth.user" class="nav-bar-item">
-          <RouterLink to="/loginregister">Login/Register</RouterLink>
-        </li>
         <li v-if="!stateAuth.user" class="nav-bar-item">
           <RouterLink to="/login">Login</RouterLink>
-        </li>
-        <li v-if="!stateAuth.user" class="nav-bar-item">
-          <RouterLink to="/register">Register</RouterLink>
         </li>
         <li v-if="stateAuth.user" class="nav-bar-item">
           <a href="#" @click="Logout()">Logout</a>
@@ -30,14 +21,8 @@
         </li>
       </ul>
     </nav>
-    <div>
-      <button
-        class="btn btn-outline-primary"
-        data-bs-toggle="modal"
-        data-bs-target="#exampleModal"
-      >
-        asd
-      </button>
+    <div class="div-profile">
+      <p>asdasd</p>
       <i
         class="bi bi-profile bi-person-circle"
         data-bs-toggle="modal"
@@ -79,10 +64,16 @@ export default {
 </script>
   
 <style scoped>
-
+.div-profile{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+}
 
 .bi-profile {
-  font-size: x-large;
+  font-size: 3rem;
 }
 
 .header-container {
@@ -102,7 +93,7 @@ export default {
   align-items: center;
   height: 100%;
   margin: 0 auto;
-  overflow: ;
+  overflow: hidden;
 }
 
 .nav-bar-menu {

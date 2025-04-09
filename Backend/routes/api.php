@@ -18,11 +18,12 @@ use App\Http\Middleware\AuthenticateMy;
 Route::get('/', function(){
     return 'API';
 });
-// Példa: Admin token, mindenhez hozzáféréssel
-$adminToken = $user->createToken('admin-token', ['admin:access'])->plainTextToken;
+// // Példa: Admin token, mindenhez hoz
+// záféréssel
+// $adminToken = $user->createToken('admin-token', ['admin:access'])->plainTextToken;
 
-// Példa: Korlátozott hozzáférésű token
-$limitedToken = $user->createToken('limited-token', ['sports:create'])->plainTextToken;
+// // Példa: Korlátozott hozzáférésű token
+// $limitedToken = $user->createToken('limited-token', ['sports:create'])->plainTextToken;
 
 
 //region users
