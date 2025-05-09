@@ -1,0 +1,13 @@
+.main-window{
+  background-color: var(--bg-color);
+  height: 100%;
+}
+
+html, body, #app {
+  height: 100%;
+  margin: 0;
+}
+
+.my-container {
+  height: 80%;
+}

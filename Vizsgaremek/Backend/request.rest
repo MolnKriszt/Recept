@@ -1,0 +1,483 @@
+### változók
+@protocol = http://
+@hostname = localhost
+@port = 8000
+@host = {{protocol}}{{hostname}}:{{port}}
+
+### teszt
+get {{host}}/api/
+
+# ------------- login, user -------------
+### login
+# @name login
+POST {{host}}/api/users/login 
+Accept: application/json
+Content-Type: application/json
+
+{
+    "email": "admin@admin.com",
+    "password": "123"
+}
+
+###
+@token = {{login.response.body.data.token}}
+
+### logout user
+POST  {{host}}/api/users/logout
+Accept: application/json
+Authorization: Bearer {{token}}
+
+
+### get users
+GET  {{host}}/api/users
+Accept: application/json
+Authorization: Bearer {{token}}
+
+### get user by id
+GET  {{host}}/api/users/1
+Accept: application/json
+Authorization: Bearer {{token}}
+
+### post user
+POST {{host}}/api/users 
+Content-Type: application/json
+Accept: application/json
+
+{
+    "name": "test2",
+    "email": "test2@example.com",
+    "password": "123"
+}
+
+### patch user
+PATCH {{host}}/api/users/3
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}}
+
+{
+    "name": "casbi"
+}
+
+### delete user
+DELETE {{host}}/api/users/3
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}}
+# ------------- /login, user -------------
+
+
+# ------------- query -------------
+### get querySelectedDishIngredients
+GET  {{host}}/api/querySelectedDishIngredients/1
+Accept: application/json
+Authorization: Bearer {{token}}
+
+# ------------- /query -------------
+
+
+
+# ------------- roles -------------
+### get roles
+GET  {{host}}/api/roles
+Accept: application/json
+Authorization: Bearer {{token}}
+
+### get role by id
+GET  {{host}}/api/roles/1
+Accept: application/json
+Authorization: Bearer {{token}}
+
+### post role
+POST {{host}}/api/roles 
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}}
+
+{
+    "name": "test"
+}
+
+### patch role
+PATCH {{host}}/api/roles/3
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}}
+
+{
+    "name": "test2"
+}
+
+### delete role
+DELETE {{host}}/api/roles/3
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}}
+# ------------- /roles -------------
+
+
+# ------------- categories -------------
+### get categories
+GET  {{host}}/api/categories
+Accept: application/json
+Authorization: Bearer {{token}}
+
+### get categorie by id
+GET  {{host}}/api/categories/12
+Accept: application/json
+Authorization: Bearer {{token}}
+
+### post categorie
+POST {{host}}/api/categories 
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}}
+
+{
+    "name": "Finom",
+    "meal_id": 1
+}
+
+### patch categorie
+PATCH {{host}}/api/categories/13
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}}
+
+{
+    "name": "FinomEtel"
+}
+
+### delete categorie
+DELETE {{host}}/api/categories/13
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}}
+# ------------- /categories -------------
+
+
+# ------------- units -------------
+### get units
+GET  {{host}}/api/units
+Accept: application/json
+Authorization: Bearer {{token}}
+
+### get units by id
+GET  {{host}}/api/units/4
+Accept: application/json
+Authorization: Bearer {{token}}
+
+### post unit
+POST {{host}}/api/units 
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}}
+
+{
+    "name": "késhegy",
+    "meal_id": 1
+}
+
+### patch unit
+PATCH {{host}}/api/units/9
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}}
+
+{
+    "name": "nemkéshegy"
+}
+
+### delete unit
+DELETE {{host}}/api/units/9
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}}
+# ------------- /units -------------
+
+
+# ------------- ingredients -------------
+### get ingredients
+GET  {{host}}/api/ingredients
+Accept: application/json
+Authorization: Bearer {{token}}
+
+### get ingredient by id
+GET  {{host}}/api/ingredients/1
+Accept: application/json
+Authorization: Bearer {{token}}
+
+### post ingredient
+POST {{host}}/api/ingredients
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}}
+
+{
+    "name": "Trappista sajt"
+}
+
+### patch ingredient
+PATCH {{host}}/api/ingredients/9
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}}
+
+{
+    "name": "Magyar Trappista sajt"
+}
+
+### delete ingredient
+DELETE {{host}}/api/ingredients/9
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}}
+# ------------- /ingredients -------------
+
+
+# ------------- dishes -------------
+### get dishes
+GET  {{host}}/api/dishes
+Accept: application/json
+Authorization: Bearer {{token}}
+
+### get dish by id
+GET  {{host}}/api/dishes/1
+Accept: application/json
+Authorization: Bearer {{token}}
+
+### post dish
+POST {{host}}/api/dishes
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}}
+
+{
+    "name": "Almás morzsa",
+    "category_id": 12,
+    "recipe": "recept.txt"
+}
+
+### patch dish
+PATCH {{host}}/api/dishes/2
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}}
+
+{
+    "name": "Brassói"
+}
+
+### delete dish
+DELETE {{host}}/api/dishes/2
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}}
+# ------------- /dishes -------------
+
+
+# ------------- components -------------
+### get components
+GET  {{host}}/api/components
+Accept: application/json
+Authorization: Bearer {{token}}
+
+### get component by id
+GET  {{host}}/api/components/8
+Accept: application/json
+Authorization: Bearer {{token}}
+
+### post component
+POST {{host}}/api/components
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}}
+
+{
+    "quantity": 4,
+    "unit_id": 2,
+    "dish_id": 1,
+    "ingredient_id": 10,
+    "number_of_people": 4
+}
+
+### patch component
+PATCH {{host}}/api/components/7
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}}
+
+{
+    "ingredient_id": 8
+}
+
+### delete component
+DELETE {{host}}/api/components/9
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}}
+# ------------- /components -------------
+
+
+# ------------- meals -------------
+### get meal
+GET  {{host}}/api/meals
+Accept: application/json
+Authorization: Bearer {{token}}
+
+### get meals by id
+GET  {{host}}/api/meals/3
+Accept: application/json
+Authorization: Bearer {{token}}
+
+### post meal
+POST {{host}}/api/meals
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}}
+
+{
+    "name": "vacsora étel második fogás"
+}
+
+### patch meal
+PATCH {{host}}/api/meals/6
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}}
+
+{
+    "name": "ebédek"
+}
+
+### delete meal
+DELETE {{host}}/api/meals/6
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}}
+
+# ------------- /meals -------------
+
+
+# ------------- daily_menus -------------
+### get daily_menu
+GET  {{host}}/api/daily_menus
+Accept: application/json
+Authorization: Bearer {{token}}
+
+### get daily_menu by id
+GET  {{host}}/api/daily_menus/1
+Accept: application/json
+Authorization: Bearer {{token}}
+
+### post daily_menu
+POST {{host}}/api/daily_menus
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}}
+
+{
+    "user_id": 1,
+    "days_of_week": "q",
+    "number_of_people": 4
+}
+
+### patch daily_menu
+PATCH {{host}}/api/daily_menus/8
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}}
+
+{
+    "days_of_week": "qq"
+}
+
+### delete daily_menu
+DELETE {{host}}/api/daily_menus/8
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}}
+
+# ------------- /daily_menus -------------
+
+
+# ------------- menu_items -------------
+### get menu_item
+GET  {{host}}/api/menu_items
+Accept: application/json
+Authorization: Bearer {{token}}
+
+### get menu_item by id
+GET  {{host}}/api/menu_items/2
+Accept: application/json
+Authorization: Bearer {{token}}
+
+### post menu_item
+POST {{host}}/api/menu_items
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}}
+
+{
+    "daily_menu_id": 2,
+    "meal_id": 1,
+    "dish_id": 1,
+    "is_optional": 1
+}
+
+### patch menu_item
+PATCH {{host}}/api/menu_items/6
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}}
+
+{
+    "meal_id": 5
+}
+
+### delete menu_item
+DELETE {{host}}/api/menu_items/6
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}}
+# ------------- /menu_items -------------
+
+
+# ------------- dish_meals -------------
+### get dish_meal
+GET  {{host}}/api/dish_meals
+Accept: application/json
+Authorization: Bearer {{token}}
+
+### get dish_meal by id
+GET  {{host}}/api/dish_meals/1
+Accept: application/json
+Authorization: Bearer {{token}}
+
+### post dish_meal
+POST {{host}}/api/dish_meals
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}}
+
+{
+    "dish_id": 1,
+    "meal_id": 3
+}
+
+### patch dish_meal
+PATCH {{host}}/api/dish_meals/7
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}}
+
+{
+    "name": "asdasd"
+}
+
+### delete dish_meal
+DELETE {{host}}/api/dish_meals/2
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}}
+# ------------- /dish_meals -------------
