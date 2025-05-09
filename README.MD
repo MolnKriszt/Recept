@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 Legelső lépésként klónozzuk le ezt a repozitóriumot a git clone parancssal, amit a Git nevű program használatával lehet megoldani akár a Visual Studio Code-ban
 
 # Adatbázis
@@ -46,6 +46,3 @@ Legelső lépésként klónozzuk le ezt a repozitóriumot a git clone parancssal
 
 - A frontend tesztelését pedig az npm run test:unit és npm run test:e2e parancsokkal végezhetjük el egy külön terminálban.
 =======
-A Vizsgaremek 2025.05.09. 23:50-kor kerül feltöltésre.
-A megértést köszönjük, de sajnos minden másodperc számít.
->>>>>>> 76cb2aee4751166f5a44d31b19ebf5b6034f5935
